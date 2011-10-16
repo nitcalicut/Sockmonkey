@@ -11,11 +11,10 @@
 	include_once '../settings/settings.php';
 
 	/**
-	* Function to connect to the database. Creates a persistent connection.
+	* Function to connect to the MAIN database. Creates a persistent connection.
 	* @return resource Database connection resource.
 	*/
-	function dbconnect()
-	{
+	function dbconnect(){
 		global $global_db_username;
 		global $global_db_password;
 		global $global_db_host;
@@ -26,12 +25,11 @@
 	}
 
 	/**
-	* Function to query database.
+	* Function to query MAIN database.
 	* @param string $sql A sql query. Any variable in sql statement MUST be escaped.
 	* @return result_resource Result resource.
 	*/
-	function dbquery($sql)
-	{
+	function dbquery($sql){
 		dbconnect();
 		return pg_query($sql);
 	}
@@ -42,12 +40,40 @@
 	* @param resource $res Result resource from a PSQL database
 	* @return array resource is converted into array and returned.
 	*/
-	function resource2array($res)
-	{
+	function resource2array($res){
 		$arr=array();
 		while($row=pg_fetch_row($res))
 			$arr=array_merge($arr,$row);
 		return $arr;
 	}
 
+	/**
+	* Secondary Database (MYSQL) functions
+	*/
+	
+	/**
+	* Secondary Database connect function
+	*/
+	function myconnect(){
+		global $mydbname;
+		global $mydbuser;
+		global $mydbpass;
+		global $mydbhost;
+
+		$link = mysql_connect($mydbname, $mydbuser, $mydbpass);
+		if (!$link){
+			die('Not connected : ' . mysql_error());
+		}
+		else{
+			mysql_select_db($mydbname, $link);
+			return $link;
+		}
+	}
+
+	/**
+	* Secondary Database query function
+	*/
+	function myquery($sql){
+		return mysql_query($sql,myconnect());
+	}
 ?>
