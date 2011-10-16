@@ -10,4 +10,5 @@
 	$global_db_password		=	"";
 	$global_db_host			=	"";
 	$global_db_name			=	"";
+	$global_db_port			=	"";
 ?>
