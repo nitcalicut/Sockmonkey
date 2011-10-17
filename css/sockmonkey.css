@@ -2,3 +2,140 @@
 	padding:0px;
 	margin:0px;
 }
+body{
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
+	font-size: 0.825em;
+	color: #FCFCFC;
+	background-color: #355664;
+}
+#sm_body{
+	width: 960px;
+	margin: 0 auto;
+	position:relative;
+}
+#sm_body h1{
+	font-size: 3.5em;
+	padding: 0.5em 0 0;
+	text-transform: uppercase;
+}
+.sm_body_line {
+	height: 1px;
+	background-color: #24404C;
+	border-bottom: 1px solid #416371;
+	margin: 1em 0;
+	overflow: hidden;
+}
+article {
+background-color: #213E4A;
+margin: 3em 0;
+padding: 20px;
+text-shadow: 0 2px 0 black;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+}
+#sm_header{
+	font-size: 2.2em;
+	font-weight: normal;
+	letter-spacing: 0.01em;
+	text-transform: uppercase;
+}
+clear::after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+#sm_form{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 10px;
+	border: 1px solid #416371;
+	width: 555px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#sm_form_header{
+	border-color: #CCC;
+	padding: 6px 0 16px;
+	padding: 6px 0 16px;
+	border-bottom: 1px solid #AAA;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 5px;
+}
+.sm_form_header_title{
+	line-height: 20px;
+	min-height: 20px;
+	padding-bottom: 2px;
+	vertical-align: bottom;
+	color: #1C2A47;
+	font-size: 16px;
+}
+#sm_form_body{
+	margin-bottom: 15px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+}
+
+#sm_form_main{
+	margin-left: auto;
+	margin-right: auto;
+	width: 350px;
+}
+#sm_form_main_body{
+	margin-top: 20px;
+}
+.sm_form_table{
+	border: 0 none;
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0px auto;
+	font-size: 14px;
+
+}
+.sm_form_table .sm_datarow {
+	height:45px;
+}
+.sm_form_table .sm_table_label {
+	padding: 1px 5px 1px;
+	padding-bottom: 1px;
+	text-align: right;
+	vertical-align: top;
+}
+.sm_data{
+	padding: 1px 0 1px;
+	padding-bottom: 1px;
+	text-align: left;
+	vertical-align: top;
+}
+.sm_text{
+	width: 240px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.sm_text select{
+	background: #555;
+	margin: 2px 0px;
+	border: 3px black;
+	padding: 2px;
+	height: 25px;
+}
+#sm_submit{
+	height: 25px;
+	width:90px;
+}
+.sm_footer{
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	float:left;
+	width:100%;
+	font-size:13px;
+	background:#213E4A;;
+	height:40px;
+	border-top:1px solid #213E4A;
+
+}
