@@ -8,7 +8,7 @@
 	/**
 	* Include database settings.
 	*/
-	include_once '../settings/settings.php';
+	require_once (realpath(dirname(__FILE__).'/../settings/settings.php'));
 
 	/**
 	* Function to connect to the MAIN database. Creates a persistent connection.
@@ -60,7 +60,7 @@
 		global $mydbpass;
 		global $mydbhost;
 
-		$link = mysql_connect($mydbname, $mydbuser, $mydbpass);
+		$link = mysql_connect($mydbhost, $mydbuser, $mydbpass);
 		if (!$link){
 			die('Not connected : ' . mysql_error());
 		}
