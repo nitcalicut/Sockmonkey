@@ -20,7 +20,7 @@
 		global $global_db_host;
 		global $global_db_port;
 		global $global_db_name;
-		$dbconn = pg_pconnect("host=$global_db_host port=$global_db_port	dbname=$global_db_name user=$global_db_username password=$global_db_password");
+		$dbconn = pg_pconnect("host=$global_db_host port=$global_db_port dbname=$global_db_name user=$global_db_username password=$global_db_password");
 		return $dbconn;
 	}
 
