@@ -1,8 +1,6 @@
 <?php
 /**
 * Script to synchronise Tathva Database (MYSQL) & Main Database(POSTGRESQL)
-* User synced, events synced (workshop pending)
-* TODO: Registration sync
 */
 	require_once (realpath(dirname(__FILE__).'/./database.php'));
 
