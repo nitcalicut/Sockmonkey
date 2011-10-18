@@ -41,10 +41,12 @@
 	* @return array resource is converted into array and returned.
 	*/
 	function resource2array($res){
-		$arr=array();
-		while($row=pg_fetch_row($res))
-			$arr=array_merge($arr,$row);
-		return $arr;
+		$result=array();
+		while($row=pg_fetch_assoc($res)){
+			$R=array($row);
+			$result=array_merge($result,$R);
+		}
+		return $result;
 	}
 
 	/**
