@@ -23,16 +23,16 @@
 			
 		*/
 		protected function createEvent ($ename,$eid,$emgr,$econtact,$emin,$emax,$efee,$eprize1,$eprize2,$eprize3) {
-			$this->ename	=	pg_escape_string($ename);
-			$this->eid		=	pg_escape_string($eid);
-			$this->emgr		=	pg_escape_string($emgr);
-			$this->econtact	=	pg_escape_string($econtact);
-			$this->emin		=	pg_escape_string($emin);
-			$this->emax		=	pg_escape_string($emax);
-			$this->efee		=	pg_escape_string($efee);
-			$this->eprize1	=	pg_escape_string($eprize1);
-			$this->eprize2	=	pg_escape_string($eprize2);
-			$this->eprize3	=	pg_escape_string($eprize3);
+			$this->ename = pg_escape_string($ename);
+			$this->eid = pg_escape_string($eid);
+			$this->emgr = pg_escape_string($emgr);
+			$this->econtact = pg_escape_string($econtact);
+			$this->emin = pg_escape_string($emin);
+			$this->emax = pg_escape_string($emax);
+			$this->efee = pg_escape_string($efee);
+			$this->eprize1 = pg_escape_string($eprize1);
+			$this->eprize2 = pg_escape_string($eprize2);
+			$this->eprize3 = pg_escape_string($eprize3);
 			$qry = "Insert into event(ev_name,ev_id,ev_emgr,ev_econtact,ev_emin,ev_emax,ev_efee,ev_eprize1,ev_eprize2,ev_eprize3)
 					values ('".$this->ename."',
 						'".$this->eid."',
@@ -57,17 +57,17 @@
 			$qry = "select * from event where ev_no='".$eno."'";
 			$res = dbquery($qry);
 			$rec = pg_fetch_row($res);
-			$this->eno		=	$rec[0];
-			$this->ename	=	$rec[1];
-			$this->eid		=	$rec[2];
-			$this->emgr		=	$rec[3];
-			$this->econtact	=	$rec[4];
-			$this->emin		=	$rec[5];
-			$this->emax		=	$rec[6];
-			$this->efee		=	$rec[7];
-			$this->eprize1	=	$rec[8];
-			$this->eprize2	=	$rec[9];
-			$this->eprize3	=	$rec[10];
+			$this->eno = $rec[0];
+			$this->ename = $rec[1];
+			$this->eid = $rec[2];
+			$this->emgr = $rec[3];
+			$this->econtact = $rec[4];
+			$this->emin = $rec[5];
+			$this->emax = $rec[6];
+			$this->efee = $rec[7];
+			$this->eprize1 = $rec[8];
+			$this->eprize2 = $rec[9];
+			$this->eprize3 = $rec[10];
 		}
 
 		/*
