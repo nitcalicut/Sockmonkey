@@ -33,18 +33,17 @@
 			$this->eprize1	=	pg_escape_string($eprize1);
 			$this->eprize2	=	pg_escape_string($eprize2);
 			$this->eprize3	=	pg_escape_string($eprize3);
-$qry = "Insert into event(ev_name,ev_id,ev_emgr,ev_econtact,ev_emin,ev_emax,ev_efee,ev_eprize1,ev_eprize2,ev_eprize3)
-		values ('".$this->ename."',
-				'".$this->eid."',
-				'".$this->emgr."',
-				'".$this->econtact."',
-				'".$this->emin."',
-				'".$this->emax."',
-				'".$this->efee."',
-				'".$this->eprize1."',
-				'".$this->eprize2."',
-				'".$this->eprize3."')";
-				
+			$qry = "Insert into event(ev_name,ev_id,ev_emgr,ev_econtact,ev_emin,ev_emax,ev_efee,ev_eprize1,ev_eprize2,ev_eprize3)
+					values ('".$this->ename."',
+						'".$this->eid."',
+						'".$this->emgr."',
+						'".$this->econtact."',
+						'".$this->emin."',
+						'".$this->emax."',
+						'".$this->efee."',
+						'".$this->eprize1."',
+						'".$this->eprize2."',
+						'".$this->eprize3."')";
 			$event=pg_fetch_assoc(dbquery($qry));
 			$this->eno=$event['ev_no'];
 		}
@@ -77,7 +76,18 @@ $qry = "Insert into event(ev_name,ev_id,ev_emgr,ev_econtact,ev_emin,ev_emax,ev_e
 		*/
 
 		protected function searchEvent() {
-			$qry = "select * from event where ev_no = ".$this->eno." or ev_name like '%".$this->ename."%' or ev_id like '%".$this->eid."%' or ev_emgr like '%".$this->emgr."%' or ev_econtact like '%".$this->econtact."%' or ev_emin = ".$this->emin." or ev_emax = ".$this->emax." or ev_efee = ".$this->efee." or ev_eprize1 like '%".$this->eprize1."%' or ev_eprize2 like '%".$this->eprize2."%' or ev_eprize3 like '%".$this->eprize3."%'";
+			$qry = "select * from event where 
+						ev_no = ".$this->eno." or 
+						ev_name like '%".$this->ename."%' or 
+						ev_id like '%".$this->eid."%' or 
+						ev_emgr like '%".$this->emgr."%' or 
+						ev_econtact like '%".$this->econtact."%' or 
+						ev_emin = ".$this->emin." or 
+						ev_emax = ".$this->emax." or 
+						ev_efee = ".$this->efee." or 
+						ev_eprize1 like '%".$this->eprize1."%' or 
+						ev_eprize2 like '%".$this->eprize2."%' or 
+						ev_eprize3 like '%".$this->eprize3."%'";
 			$res = dbquery($qry);
 			return $res;
 		}
@@ -87,7 +97,18 @@ $qry = "Insert into event(ev_name,ev_id,ev_emgr,ev_econtact,ev_emin,ev_emax,ev_e
 		*/
 
 		protected function updateEvent() {
-			$qry = "update event set ev_name = '".$this->ename."' , ev_id = '".$this->eid."' , ev_emgr = '".$this->emgr."' , ev_econtact = '".$this->econtact."' , ev_emin = ".$this->emin." , ev_emax = ".$this->emax." , ev_efee = ".$this->efee." , ev_eprize1 = '".$this->eprize1."' , ev_eprize2 = '".$this->eprize2."' , ev_eprize3 = '".$this->eprize3."' where ev_no=".$this->eno."";
+			$qry = "update event set 
+						ev_name = '".$this->ename."' ,
+						ev_id = '".$this->eid."' ,
+						ev_emgr = '".$this->emgr."' ,
+						ev_econtact = '".$this->econtact."' ,
+						ev_emin = ".$this->emin." ,
+						ev_emax = ".$this->emax." ,
+						ev_efee = ".$this->efee." ,
+						ev_eprize1 = '".$this->eprize1."' ,
+						ev_eprize2 = '".$this->eprize2."' ,
+						ev_eprize3 = '".$this->eprize3."' 
+						where ev_no=".$this->eno."";
 			$res = dbquery($qry);
 		}
 	/*
