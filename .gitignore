@@ -1,4 +1,6 @@
 # Files to be excluded from Git Tracking
 *~
-settings/settings.php
+src/settings.php
+*.sql
+test.php
 
