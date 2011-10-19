@@ -174,6 +174,28 @@ class registration
 								rg_captaincnfrm = CASE WHEN rg_captainid = '$tid' then 'Y' ELSE 'N' END";
 		dbquery($sql);
 	}
+	
+	public function eventConfirm($min){
+		$count=0;
+		if($this->rgCaptainConfirm == 'Y' || $this->rgCaptainConfirm == 'y'){
+			$count=1;
+			if($this->rgConfirm1 == 'Y' || $this->rgConfirm1 == 'y'){	$count++;	}
+			if($this->rgConfirm2 == 'Y' || $this->rgConfirm2 == 'y'){	$count++;	}
+			if($this->rgConfirm3 == 'Y' || $this->rgConfirm3 == 'y'){	$count++;	}
+			if($this->rgConfirm4 == 'Y' || $this->rgConfirm4 == 'y'){	$count++;	}
+			if($this->rgConfirm5 == 'Y' || $this->rgConfirm5 == 'y'){	$count++;	}
+			if($this->rgConfirm6 == 'Y' || $this->rgConfirm6 == 'y'){	$count++;	}
+			if($count>=$min){
+				return "Confirm";
+			}
+			else{
+				return "Minimum not satisfied";
+			}
+		}
+		else{
+			echo "Captain missing";
+		}
+	}
 }
 
 ?>
