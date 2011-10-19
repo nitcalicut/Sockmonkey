@@ -11,7 +11,12 @@
 		private $eno,$ename,$eid,$emgr,$econtact,$emin,$emax,$efee,$eprize1,$eprize2,$eprize3;
 		/**/
 		public function __construct() {
-			
+			$a = func_get_args();
+			$i = func_num_args(); 
+			if($i==1)
+				call_user_func_array(array($this,'viewEvent'),$a);
+			if($i==10)
+				call_user_func_array(array($this,'createEvent'),$a);
 		}
 		public function __destruct() {
 			
@@ -22,30 +27,30 @@
 			@param string ename: event name, string eid: event Id, string emgr: event manager,
 			
 		*/
-		protected function createEvent ($ename,$eid,$emgr,$econtact,$emin,$emax,$efee,$eprize1,$eprize2,$eprize3) {
-			$this->ename = pg_escape_string($ename);
-			$this->eid = pg_escape_string($eid);
-			$this->emgr = pg_escape_string($emgr);
-			$this->econtact = pg_escape_string($econtact);
-			$this->emin = pg_escape_string($emin);
-			$this->emax = pg_escape_string($emax);
-			$this->efee = pg_escape_string($efee);
-			$this->eprize1 = pg_escape_string($eprize1);
-			$this->eprize2 = pg_escape_string($eprize2);
-			$this->eprize3 = pg_escape_string($eprize3);
-			$qry = "Insert into event(ev_name,ev_id,ev_emgr,ev_econtact,ev_emin,ev_emax,ev_efee,ev_eprize1,ev_eprize2,ev_eprize3)
+		protected function createEvent ($evname,$evid,$evmgr,$evcontact,$evmin,$evmax,$evfee,$evprize1,$evprize2,$evprize3) {
+			$this->ename = pg_escape_string($evname);
+			$this->eid = pg_escape_string($evid);
+			$this->emgr = pg_escape_string($evmgr);
+			$this->econtact = pg_escape_string($evcontact);
+			$this->emin = pg_escape_string($evmin);
+			$this->emax = pg_escape_string($evmax);
+			$this->efee = pg_escape_string($evfee);
+			$this->eprize1 = pg_escape_string($evprize1);
+			$this->eprize2 = pg_escape_string($evprize2);
+			$this->eprize3 = pg_escape_string($evprize3);
+			$qry = "Insert into event(ev_name,ev_id,ev_mgr,ev_contact,ev_min,ev_max,ev_fee,ev_prize1,ev_prize2,ev_prize3)
 					values ('".$this->ename."',
 						'".$this->eid."',
 						'".$this->emgr."',
 						'".$this->econtact."',
-						'".$this->emin."',
-						'".$this->emax."',
-						'".$this->efee."',
+						".$this->emin.",
+						".$this->emax.",
+						".$this->efee.",
 						'".$this->eprize1."',
 						'".$this->eprize2."',
 						'".$this->eprize3."')";
-			$event=pg_fetch_assoc(dbquery($qry));
-			$this->eno=$event['ev_no'];
+			$eventNo=pg_fetch_assoc(dbquery($qry));
+			$this->eno=$eventNo['ev_no'];
 		}
 
 
@@ -53,7 +58,7 @@
 		*
 		*/
 
-		public function viewEvent ($eno) {
+		protected function viewEvent ($eno) {
 			$qry = "select * from event where ev_no='".$eno."'";
 			$res = dbquery($qry);
 			$rec = pg_fetch_row($res);
@@ -75,7 +80,7 @@
 		* @return: it returns a record set which contains the result of search.
 		*/
 
-		protected function searchEvent() {
+		public function searchEvent() {
 			$qry = "select * from event where 
 						ev_no = ".$this->eno." or 
 						ev_name like '%".$this->ename."%' or 
@@ -89,14 +94,15 @@
 						ev_eprize2 like '%".$this->eprize2."%' or 
 						ev_eprize3 like '%".$this->eprize3."%'";
 			$res = dbquery($qry);
-			return $res;
+			$arr = resource2array($res);
+			return $arr;
 		}
 
 		/*
 		* This is a function for uodating an event's details'
 		*/
 
-		protected function updateEvent() {
+		public function updateEvent() {
 			$qry = "update event set 
 						ev_name = '".$this->ename."' ,
 						ev_id = '".$this->eid."' ,
