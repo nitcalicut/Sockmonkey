@@ -9,4 +9,13 @@
 		$p->updateStatus("Y");
 		registration::confirmEventParticipation($tid);
 	}
+
+	function genTathvaId()
+	{
+		$obj=new participant();
+		$temp=$obj->getLastId();
+		$temp=$temp+3001;
+		$str='TAT'."$temp";
+		return $str;
+	}
 ?>
