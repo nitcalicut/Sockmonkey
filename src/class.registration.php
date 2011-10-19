@@ -178,7 +178,7 @@ class registration
 	/** Function that returns all the Team ID's (and the corresponding EventID for each TeamID) of a particular participant given his/her Tathva ID.
 		*/
 	public static function participantEvents($tid){
-		$sql="Select rg_teamid from registration where rg_part1 = '$tid' OR
+		$sql="Select rg_teamid,rg_eventid from registration where rg_part1 = '$tid' OR
 													rg_part2 = '$tid' OR
 													rg_part3 = '$tid' OR
 													rg_part4 = '$tid' OR
