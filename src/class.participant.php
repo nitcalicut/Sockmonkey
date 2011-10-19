@@ -140,8 +140,7 @@ class participant
 	* @param string $pnitc Roll Number of a participant from NITC.
 	* @return integer (1:update successful | 0:update unsuccessful)
 	*/
-	public static function updateInfo($pid, $pname, $pemail, $pcoll, $pcntct, $pstate, $preq, $pnitc){
-		$pid=pg_escape_string($pid);
+	public function updateInfo($pname, $pemail, $pcoll, $pcntct, $pstate, $preq, $pnitc){
 		$pname=pg_escape_string($pname);
 		$pemail=pg_escape_string($pemail);
 		$pcoll=pg_escape_string($pcoll);
@@ -150,7 +149,7 @@ class participant
 		$preq=pg_escape_string($preq);
 		$pnitc=pg_escape_string($pnitc);
 	
-		$sql="UPDATE participant SET pc_name='".$pname."', pc_email='".$pemail."', pc_college='".$pcoll."', pc_contact='".$pcntct."', pc_state='".$pstate."', pc_accomreqst='".$preq."', pc_nitcrollno='".$pnitc."' WHERE pc_tatid = '".$pid."'";
+		$sql="UPDATE participant SET pc_name='".$pname."', pc_email='".$pemail."', pc_college='".$pcoll."', pc_contact='".$pcntct."', pc_state='".$pstate."', pc_accomreqst='".$preq."', pc_nitcrollno='".$pnitc."' WHERE pc_tatid = '".$this->pid."'";
 		
 		$r=dbquery($sql);
 		if($r)
@@ -164,11 +163,10 @@ class participant
 	* @param string $pid Participant ID of a participant.
 	* @return integer (1:update successful | 0:update unsuccessful)
 	*/
-	public static function updateStatus($pid,$st){
-		$pid=pg_escape_string($pid);
+	public function updateStatus($st){
 		$st=pg_escape_string($st);
 			
-		$sql="UPDATE participant SET pc_confirm='".$st."' WHERE pc_tatid = '".$pid."'";
+		$sql="UPDATE participant SET pc_confirm='".$st."' WHERE pc_tatid = '".$this->pid."'";
 		
 		$r=dbquery($sql);
 		if($r)

@@ -163,8 +163,17 @@ class registration
 		$user=dbquery($sql);
 		$this->create($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6);
 	}
-		
 	
+	public static function confirmEventParticipation($tid){
+		$sql="update registration set rg_cnfrm1 = CASE WHEN rg_part1 = '$tid' then 'Y' ELSE 'N' END,
+								rg_cnfrm2 = CASE WHEN rg_part2 = '$tid' then 'Y' ELSE 'N' END,
+								rg_cnfrm3 = CASE WHEN rg_part3 = '$tid' then 'Y' ELSE 'N' END,
+								rg_cnfrm4 = CASE WHEN rg_part4 = '$tid' then 'Y' ELSE 'N' END,
+								rg_cnfrm5 = CASE WHEN rg_part5 = '$tid' then 'Y' ELSE 'N' END,
+								rg_cnfrm6 = CASE WHEN rg_part6 = '$tid' then 'Y' ELSE 'N' END,
+								rg_captaincnfrm = CASE WHEN rg_captainid = '$tid' then 'Y' ELSE 'N' END";
+		dbquery($sql);
+	}
 }
 
 ?>
