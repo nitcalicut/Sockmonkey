@@ -5,7 +5,7 @@
 	@author Mitaksh		<mitakshg@gmail.com>
 	
 */
-	require_once (realpath(dirname(__FILE__).'/database.php'));
+	include_once 'database.php';
 
 	class event {
 		private $eno,$ename,$eid,$emgr,$econtact,$emin,$emax,$efee,$eprize1,$eprize2,$eprize3;
