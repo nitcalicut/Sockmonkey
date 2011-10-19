@@ -48,7 +48,7 @@
 						".$this->efee.",
 						'".$this->eprize1."',
 						'".$this->eprize2."',
-						'".$this->eprize3."')";
+						'".$this->eprize3."') RETURNING ev_no";
 			$eventNo=pg_fetch_assoc(dbquery($qry));
 			$this->eno=$eventNo['ev_no'];
 		}
@@ -93,9 +93,7 @@
 						ev_eprize1 like '%".$this->eprize1."%' or 
 						ev_eprize2 like '%".$this->eprize2."%' or 
 						ev_eprize3 like '%".$this->eprize3."%'";
-			$res = dbquery($qry);
-			$arr = resource2array($res);
-			return $arr;
+			return (resource2array(dbquery($qry)));
 		}
 
 		/*
