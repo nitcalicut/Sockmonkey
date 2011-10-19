@@ -6,17 +6,37 @@
 			<link rel="stylesheet" href="css/sockmonkey.css" type="text/css" charset="utf-8"/>
 			<link rel="stylesheet" href="css/jsonSuggest.css" type="text/css" />
 					<script type="text/javascript" src="js/sockmonkey.js"></script>
-			<script type="text/javascript" src="js/jquery-1.3.2"></script>
+			<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
 			<script language="JavaScript" src="js/jquery.jsonSuggest-dev.js"></script>
 			<script language="JavaScript" src="js/json2.js"></script>
-			<script language="JavaScript" src="testData/testData.js"></script>
 			<script type="text/javascript">
 				$(document).ready(function(){
 					smTab();
-					
-				});
-				
-				
+					$('#sm_button').click(function(){
+
+					// Call the function to handle the AJAX.
+					// Pass the value of the text box to the function.
+					sendValue($('#sm_inputsearch').val());
+					}); 
+					$("#sm_button").click(function(){
+						$("#userdata tbody").html("");
+						$.getJSON("temp1.php",function(data){
+								$.each(data.userdata, function(i,user){
+									var tblRow =
+										"<tr>"
+										+"<td>"+user.first+"</td>"
+										+"<td>"+user.last+"</td>"
+										+"<td>"+user.email+"</td>"
+										+"<td>"+user.city+"</td>"
+										+"</tr>"
+									$(tblRow).appendTo("#userdata tbody");
+								});
+							}
+						);
+					});
+					});
+
+	
 			</script>
 	</head>
 <body>
@@ -38,7 +58,9 @@
 										</div>
 									</div>
 								</td>
-								
+								<td class="sm_data">
+									<input type="button" id="sm_button" name="sm_button" value="search">
+								</td>
 							</tr>
 						</table>
 					</form>
@@ -65,10 +87,22 @@
 							</div>
 						</div>
 					</div>
+					<form>
+						<input type="submit" name="sm_submit_conferm" id="sm_submit_conferm" value="conferm">
+					</form>
 				</div>
 			</div>
 			<div style="display: none;" id="tab2" class="tab_content">
-				<div class="sm_content_text">
+				<div class="sm_content_text" >
+					<table id="userdata" border="1">
+						<thead>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Email Address</th>
+							<th>City</th>
+						</thead>
+						<tbody></tbody>
+					</table>
 				</div>
 			</div>
 			<div style="display: none;" id="tab3" class="tab_content">
@@ -87,14 +121,5 @@
 	</div>
 	<div class="sm_footer">
 	</div>
-	<script type="text/javascript">
-			function callback(item) {
-			$('#test').empty();
-			$("#test").append('name: '+item.text +'</ br> id: '+item.id+'');
-}
-			jQuery(function() {
-				$('input#sm_inputsearch').jsonSuggest(testData.countryCodes, {onSelect:callback});
-			});
 
-	</script>
 </body>

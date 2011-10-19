@@ -28,7 +28,7 @@
 							<div id="sm_form_body">
 								<div id="sm_form_main">
 									<div id="sm_form_main_body">
-										<form id="sm_form_login">
+										<form id="sm_form_login" action="loggedin.php" method="POST">
 											<table class="sm_form_table">
 												<tr class="sm_datarow">
 													<th class="sm_table_label">

@@ -80,8 +80,15 @@ clear::after {
 	position:relative;
 	padding-left:5px;
 	padding-right:5px;
-	background-color:red;
-	height:50px;
+
+	min-height:90px;
+}
+#sm_submit_conferm{
+	float:left;
+	margin-left:10px;
+}
+#userdata{
+	color:red;
 }
 #sm_form_main{
 	margin-left: auto;
