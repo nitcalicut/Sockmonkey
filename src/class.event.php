@@ -58,8 +58,8 @@
 		*
 		*/
 
-		protected function viewEvent ($eno) {
-			$qry = "select * from event where ev_no='".$eno."'";
+		protected function viewEvent ($evid) {
+			$qry = "select * from event where ev_id='".$evid."'";
 			$res = dbquery($qry);
 			$rec = pg_fetch_row($res);
 			$this->eno = $rec[0];
@@ -80,19 +80,13 @@
 		* @return: it returns a record set which contains the result of search.
 		*/
 
-		public function searchEvent() {
+		public function searchEvent($arg) {
+			$arg='%'.$arg.'%';
 			$qry = "select * from event where 
-						ev_no = ".$this->eno." or 
-						ev_name like '%".$this->ename."%' or 
-						ev_id like '%".$this->eid."%' or 
-						ev_emgr like '%".$this->emgr."%' or 
-						ev_econtact like '%".$this->econtact."%' or 
-						ev_emin = ".$this->emin." or 
-						ev_emax = ".$this->emax." or 
-						ev_efee = ".$this->efee." or 
-						ev_eprize1 like '%".$this->eprize1."%' or 
-						ev_eprize2 like '%".$this->eprize2."%' or 
-						ev_eprize3 like '%".$this->eprize3."%'";
+						(ev_name like '".$arg."') OR 
+						(ev_id like '".$arg."') OR 
+						(ev_mgr like '".$arg."')";
+						
 			return (resource2array(dbquery($qry)));
 		}
 
@@ -104,14 +98,14 @@
 			$qry = "update event set 
 						ev_name = '".$this->ename."' ,
 						ev_id = '".$this->eid."' ,
-						ev_emgr = '".$this->emgr."' ,
-						ev_econtact = '".$this->econtact."' ,
-						ev_emin = ".$this->emin." ,
-						ev_emax = ".$this->emax." ,
-						ev_efee = ".$this->efee." ,
-						ev_eprize1 = '".$this->eprize1."' ,
-						ev_eprize2 = '".$this->eprize2."' ,
-						ev_eprize3 = '".$this->eprize3."' 
+						ev_mgr = '".$this->emgr."' ,
+						ev_contact = '".$this->econtact."' ,
+						ev_min = ".$this->emin." ,
+						ev_max = ".$this->emax." ,
+						ev_fee = ".$this->efee." ,
+						ev_prize1 = '".$this->eprize1."' ,
+						ev_prize2 = '".$this->eprize2."' ,
+						ev_prize3 = '".$this->eprize3."' 
 						where ev_no=".$this->eno."";
 			$res = dbquery($qry);
 		}
