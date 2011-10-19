@@ -11,8 +11,7 @@
 		registration::confirmEventParticipation($tid);
 	}
 
-	function genTathvaId()
-	{
+	function genTathvaId(){
 		$obj=new participant();
 		$temp=$obj->getLastId();
 		$temp=$temp+3001;
@@ -22,10 +21,9 @@
 	
 
 #	dereg function used to dereg a user from accommodation.
-#	this function return a true value when update successfully else return a false value
+#	this function returns a true value when updated successfully else returns a false value
 
-	function deReg($tatid)
-	{
+	function deReg($tatid){
 		$y=0;
 		$obj=new participant($tatid);
 		$obj1=new accommodation($obj->getAccomCaptain());

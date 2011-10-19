@@ -175,6 +175,8 @@ class registration
 		dbquery($sql);
 	}
 	
+	/** Function that returns all the Team ID's (and the corresponding EventID for each TeamID) of a particular participant given his/her Tathva ID.
+		*/
 	public static function participantEvents($tid){
 		$sql="Select rg_teamid from registration where rg_part1 = '$tid' OR
 													rg_part2 = '$tid' OR
@@ -186,7 +188,9 @@ class registration
 		return resource2array(dbquery($sql));
 	}
 	
-	public function eventConfirm($min){
+	/** Function that confirms a Team based on certain conditions
+		*/
+	public function eventConfirm($min,$max){
 		$count=0;
 		if($this->rgCaptainConfirm == 'Y' || $this->rgCaptainConfirm == 'y'){
 			$count=1;
@@ -196,7 +200,7 @@ class registration
 			if($this->rgConfirm4 == 'Y' || $this->rgConfirm4 == 'y'){	$count++;	}
 			if($this->rgConfirm5 == 'Y' || $this->rgConfirm5 == 'y'){	$count++;	}
 			if($this->rgConfirm6 == 'Y' || $this->rgConfirm6 == 'y'){	$count++;	}
-			if($count>=$min){
+			if($count>=$min && $count<=max){
 				return "Confirm";
 			}
 			else{
