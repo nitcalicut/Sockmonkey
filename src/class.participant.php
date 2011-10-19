@@ -192,6 +192,13 @@ class participant
 		else
 			return 0;				
 	}
+
+	public function getLastId()
+{
+	$sql="SELECT COUNT (*) FROM participant";
+	$x=pg_fetch_row(dbquery($sql));
+	return $x[0];
+}
 	
 #	THE FOLLOWING FUNCTIONS, IF REQUIRED, CAN BE UNCOMMENTED  
 #	
