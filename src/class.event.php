@@ -162,7 +162,7 @@
 	
 	/*
 	* the following functions helps you to set data to the Object.
-	* they are 'set methods' :-)
+	* @Param $value is set correspondinlg to value-member of the class
 	*/
 	
 	public function setEventName($value) {
