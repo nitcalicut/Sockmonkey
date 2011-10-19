@@ -121,7 +121,7 @@ class participant
 		return $this->pnitc;
 	}
 
-	public static function searchPc($arg){
+	public static function search($arg){
 		$arg=$arg.'%';
 		$sql="SELECT * FROM participant WHERE (pc_tatid LIKE '".$arg."') OR (pc_name LIKE '".$arg."') OR (pc_email LIKE '".$arg."')";
 		$arr=resource2array(dbquery($sql));
