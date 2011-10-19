@@ -92,32 +92,34 @@ class accommodation
 		$aitems=pg_escape_string($aitems);
 		$aroom=pg_escape_string($aroom);
 		$adereg=pg_escape_string($adereg);
-
-'		$sql="UPDATE accomodation SET ac_captainid='".$acaptid."',ac_issueditems='".$aitems."', ac_room='".$aroom."',ac_dereg='".$adereg."' WHERE ac_captainid = '.$this->acaptid."'";
+		
+		$sql="UPDATE accomodation SET ac_captainid='".$acaptid."',ac_issueditems='".$aitems."', ac_room='".$aroom."',ac_deregstrd='".$adereg."' WHERE ac_captainid = '".$this->acaptid."'";
 
 		$r=dbquery($sql);
 		if($r)
+		{echo 'fired';
 			return 1;
+			}
 		else
 			return 0;
 	}
 	
-	/**
-	* Static function that updates the current Accomodation status to $s. The team captain's ID is given by acaptid.
-	* @return integer (1: exists | 0: does not exists)
-	*/
-	/*public static function updateDereg($acaptid, $s){
-		$acaptid=pg_escape_string($acaptid);
-		$s=pg_escape_string($s);
-		
-		$sql="UPDATE accomodation SET ac_deregstrd='".$s."' WHERE ac_acaptid='".$acaptid."'";
-		$r=dbquery($sql);
+#	/**
+#	* Static function that updates the current Accomodation status to $s. The team captain's ID is given by acaptid.
+#	* @return integer (1: exists | 0: does not exists)
+#	*/
+#	public static function updateDereg($acaptid, $s){
+#		$acaptid=pg_escape_string($acaptid);
+#		$s=pg_escape_string($s);
+#		
+#		$sql="UPDATE accomodation SET ac_deregstrd='".$s."' WHERE ac_acaptid='".$acaptid."'";
+#		$r=dbquery($sql);
 
-		if($r)
-			return 1;
-		else
-			return 0;*/
-	}
+#		if($r)
+#			return 1;
+#		else
+#			return 0;*/
+#	}
 }
 
 ?>
