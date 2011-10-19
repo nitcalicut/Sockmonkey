@@ -16,5 +16,23 @@ function smTab() {
 	});
 
 }
-
+function sendValue(str){
+    
+    // post(file, data, callback, type); (only "file" is required)
+    $.post(
+        
+    "temp.php", //Ajax file
+    
+    { sendValue: str },  // create an object will all values
+    
+    //function that is called when server returns a value.
+    function(data){
+        $('#test').html(data.returnValue);
+    }, 
+    
+    //How you want the data formated when it is returned from the server.
+    "json"
+    );
+    
+}
 
