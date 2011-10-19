@@ -88,7 +88,7 @@
 						</div>
 					</div>
 					<form>
-						<input type="submit" name="sm_submit_conferm" id="sm_submit_conferm" value="conferm">
+						<input type="submit" name="sm_submit_confirm" id="sm_submit_confirm" value="confirm">
 					</form>
 				</div>
 			</div>
