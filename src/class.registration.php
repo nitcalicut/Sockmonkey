@@ -175,6 +175,17 @@ class registration
 		dbquery($sql);
 	}
 	
+	public static function participantEvents($tid){
+		$sql="Select rg_teamid from registration where rg_part1 = '$tid' OR
+													rg_part2 = '$tid' OR
+													rg_part3 = '$tid' OR
+													rg_part4 = '$tid' OR
+													rg_part5 = '$tid' OR
+													rg_part6 = '$tid' OR
+													rg_captainid = '$tid'";
+		return resource2array(dbquery($sql));
+	}
+	
 	public function eventConfirm($min){
 		$count=0;
 		if($this->rgCaptainConfirm == 'Y' || $this->rgCaptainConfirm == 'y'){
