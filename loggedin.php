@@ -7,33 +7,47 @@
 			<link rel="stylesheet" href="css/jsonSuggest.css" type="text/css" />
 					<script type="text/javascript" src="js/sockmonkey.js"></script>
 			<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
-			<script language="JavaScript" src="js/jquery.jsonSuggest-dev.js"></script>
-			<script language="JavaScript" src="js/json2.js"></script>
 			<script type="text/javascript">
 				$(document).ready(function(){
 					smTab();
-					$('#sm_button').click(function(){
 
 					// Call the function to handle the AJAX.
 					// Pass the value of the text box to the function.
-					sendValue($('#sm_inputsearch').val());
-					}); 
 					$("#sm_button").click(function(){
+						$("#userdata1 tbody").html("");
 						$("#userdata tbody").html("");
-						$.getJSON("temp1.php",function(data){
-								$.each(data.userdata, function(i,user){
+						$.getJSON("src/response.usersearch.php?sm_inputsearch="+$('#sm_inputsearch').val(),function(data){
+								$.each(data, function(i,user){
 									var tblRow =
 										"<tr>"
-										+"<td>"+user.first+"</td>"
-										+"<td>"+user.last+"</td>"
-										+"<td>"+user.email+"</td>"
-										+"<td>"+user.city+"</td>"
+										+"<td>"+user.pc_name+"</td>"
+										+"<td>"+user.pc_tatid+"</td>"
+										+"<td>"+"<input type='button' value='conferm' id="+i+">"+"</td>"
 										+"</tr>"
-									$(tblRow).appendTo("#userdata tbody");
+									$(tblRow).appendTo("#userdata1 tbody");
+									
+										$("#"+i).click(function(){
+										$.getJSON("src/response.usersearch.php?sm_inputsearch="+user.pc_tatid,function(data){
+											$.each(data, function(i,user){
+											var tblRow1 =
+										"<tr>"
+										+"<td>"+user.pc_name+"</td>"
+										+"<td>"+user.pc_tatid+"</td>"
+										+"<td>"+user.pc_conferm+"</td>"
+										+"</tr>"
+									$(tblRow1).appendTo("#userdata tbody");
+											});
+										}
+									);
+									});
+									
+									
 								});
 							}
 						);
+						
 					});
+					
 					});
 
 	
@@ -51,7 +65,7 @@
 								<th class="sm_table_label" style="color:black;">Key:</th>
 								<td class="sm_data">
 									<div>
-									<input class="sm_text" id="sm_inputsearch" type="text">
+									<input class="sm_text" id="sm_inputsearch" type="text" name="sm_inputsearch">
 									</div>
 									<div class="suggestionsBox" id="suggestions" style="display: none;">
 										<div class="suggestionList" id="autoSuggestionsList">&nbsp;
@@ -83,7 +97,15 @@
 					<div class="sm_tab_body">
 						<div class="sm_tab_body_content">
 							<div id="test">
-								
+								<table id="userdata1" border="1">
+									<thead>
+										<th>Name</th>
+										<th>Name</th>
+										<th>Email Address</th>
+										<th>button</th>
+									</thead>
+									<tbody></tbody>
+								</table>
 							</div>
 						</div>
 					</div>
