@@ -103,6 +103,12 @@ class accommodation
 		else
 			return 0;
 	}
+
+	public function getAllData(){
+		$sql="SELECT * FROM accommodation";
+		$data=resource2array(dbquery(sql));
+		return data;
+	}
 	
 #	/**
 #	* Static function that updates the current Accomodation status to $s. The team captain's ID is given by acaptid.
