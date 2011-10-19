@@ -27,4 +27,8 @@
 	{
 		return registration::searchRegisteredTeam($key);
 	}
+	function createTeam($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6){
+		$obj=new registration($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6);
+	}
+
 ?>
