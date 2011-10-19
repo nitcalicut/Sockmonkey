@@ -9,7 +9,7 @@
 * Includes files for database connectivity.
 */
 
-include_once './database.php';
+include_once 'database.php';
 
 /**
 * Class participant for managing participants.
