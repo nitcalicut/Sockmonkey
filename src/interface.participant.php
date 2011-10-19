@@ -11,6 +11,11 @@
 		registration::confirmEventParticipation($tid);
 	}
 
+	function participantEvents($tid){
+		$r = registration::participantEvents($tid);
+		return $r;
+	}
+
 	function genTathvaId(){
 		$obj=new participant();
 		$temp=$obj->getLastId();
