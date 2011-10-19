@@ -13,7 +13,7 @@
 
 	function partEventList($tathvaId){
 		$obj=new registration();
-		$arr=$obj->participantEvents($tathvaid);
+		$arr=$obj->participantEvents($tathvaId);
 		return $arr;
 	}
 
@@ -27,6 +27,8 @@
 	{
 		return registration::searchRegisteredTeam($key);
 	}
+	
+	
 	function createTeam($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6){
 		$obj=new registration($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6);
 	}
