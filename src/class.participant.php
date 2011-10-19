@@ -9,7 +9,7 @@
 * Includes files for database connectivity.
 */
 
-include_once './database.php';
+include_once 'database.php';
 
 /**
 * Class participant for managing participants.
@@ -122,7 +122,7 @@ class participant
 	}
 
 	public static function search($arg){
-		$arg=$arg.'%';
+		$arg='%'.$arg.'%';
 		$sql="SELECT * FROM participant WHERE (pc_tatid LIKE '".$arg."') OR (pc_name LIKE '".$arg."') OR (pc_email LIKE '".$arg."')";
 		$arr=resource2array(dbquery($sql));
 		return $arr;

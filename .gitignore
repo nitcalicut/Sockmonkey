@@ -3,4 +3,5 @@
 src/settings.php
 *.sql
 test.php
+testData/*
 
