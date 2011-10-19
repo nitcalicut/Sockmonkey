@@ -11,5 +11,20 @@
 		return $str;
 	}
 
+	function partEventList($tathvaId){
+		$obj=new registration();
+		$arr=$obj->participantEvents($tathvaid);
+		return $arr;
+	}
+
+	function updateTeam($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6){
+		$obj=new registration();
+		$arr=$obj->updateTeamReg($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6);
+		return $arr;
+	}
 	
+	function searchTeam($key)
+	{
+		return registration::searchRegisteredTeam($key);
+	}
 ?>
