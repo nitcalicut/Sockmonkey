@@ -1,4 +1,4 @@
-*{
+html, body {
 	padding:0px;
 	margin:0px;
 }
@@ -83,13 +83,21 @@ clear::after {
 
 	min-height:90px;
 }
-#sm_submit_conferm{
+#sm_submit_confirm{
 	float:left;
 	margin-left:10px;
 }
 #userdata{
-	color:red;
+	color:#666;
+	border-width:0px;
+	margin:20px;
 }
+
+#userdata tr, #userdata th{
+	border-width:0px;
+}
+
+
 #sm_form_main{
 	margin-left: auto;
 	margin-right: auto;
