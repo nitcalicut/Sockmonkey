@@ -199,6 +199,11 @@ class participant
 		return $x[0];
 	}
 
+	/**
+	* Static function that inserts an Accomodation captain for a set of participants whose tathva ID's are contained in array $team[].
+	* @param string $captid Tathva ID of the Accomodated Team's Captain.
+	* @return integer (1: exists | 0: does not exists)
+	*/
 	public static function insertAccomCaptain($team,$captid){
 		$cnt=count($team);
 		$i=0;
@@ -215,6 +220,7 @@ class participant
 		else
 			return 0;
 	}
+
 
 #	THE FOLLOWING FUNCTIONS, IF REQUIRED, CAN BE UNCOMMENTED  
 #	

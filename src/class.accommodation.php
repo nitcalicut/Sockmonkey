@@ -123,6 +123,7 @@ class accommodation
 		return $data;
 	}
 	
+	
 #	/**
 #	* Static function that updates the current Accomodation status to $s. The team captain's ID is given by acaptid.
 #	* @return integer (1: exists | 0: does not exists)
