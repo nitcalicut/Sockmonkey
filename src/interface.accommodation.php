@@ -18,4 +18,8 @@
 		$obj -> deleteTeam();
 		participant::updateAccomCaptain($captid,'');
 	}
+	
+	function listAccommodationData(){
+		return (accommodation::getAllData());
+	}
 ?>
