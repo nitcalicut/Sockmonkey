@@ -16,4 +16,8 @@
 		echo json_encode(participantEvents($_GET['participantevent']));
 	}
 	
+	if(isset($_GET['participantinfo'])){
+		echo json_encode(participantInfo($_GET['participantinfo']));
+	}
+	
 ?>
