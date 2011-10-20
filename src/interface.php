@@ -61,6 +61,10 @@
 		return json_encode($r);
 	}
 	
+	/**
+	* Generates new Tathva ID's
+	* Tested.
+	*/
 	function genTathvaId(){
 		$obj=new participant();
 		$temp=$obj->getLastId();
@@ -70,9 +74,10 @@
 	}
 	
 
-#	dereg function used to dereg a user from accommodation.
-#	this function returns a true value when updated successfully else returns a false value
-
+	/**
+	* Deregisters a user from a hospitality
+	* Not tested
+	*/
 	function deReg($tatid){
 		$y=0;
 		$obj=new participant($tatid);
@@ -83,12 +88,55 @@
 		return $y;
 	}
 	
-	/*
-		function creates a new user/participant
+	/**
+	* function creates a new user/participant
+	* Not tested
 	*/
 	function newUser($pname, $pemail, $pcoll, $pcntct, $pstate, $pgen, $preq) {
 		$pid = genTathvaId();
 		$obj = new participant($pid, $pname, $pemail, $pcoll, $pcntct, $pstate, $pgen, $preq,"");
 		return json_encode(array("tathvaid"=>$pid));
+	}
+	
+	/*
+	* Gets all info for a particular event.
+	* Not tested
+	*/
+	function getEventInfo($evid) {
+		$ob = new event($evid);
+		$evarray = $ob -> getResourceVar();
+		return json_encode($evarray);
+	}
+	
+	/*
+	* Gets details of 3 winners of a particular event.
+	* Not tested
+	*/
+	function getEventWinnersInfo($evid) {
+		$ob = new event($evid);
+		$winners['ev_prize1'] = $ob -> getPrize1();
+		$winners['ev_prize2'] = $ob -> getPrize2();
+		$winners['ev_prize3'] = $ob -> getPrize3();
+		return($winners);
+	}
+	
+	/*
+	* Gets a list of all eventids stored in database.
+	* Not tested
+	*/
+	function getAllEventIds() {
+		return (event::listAllEventIds());
+	}
+	
+	/**
+	* Update prize information of an event
+	* Not tested
+	*/
+	function updatePrizelist($evid,$pz1,$pz2,$pz3) {
+		$ob = new event($evid);
+		$ob -> setPrize1($pz1);
+		$ob -> setPrize2($pz2);
+		$ob -> setPrize3($pz3);
+		$ob -> updateEvent();
 	}
 ?>
