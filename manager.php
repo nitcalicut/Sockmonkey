@@ -11,6 +11,7 @@
 </head>
 <body>
 <a href='/Sockmonkey'><div id='topbar'></div></a>
+<div id='pop'></div>
 <div id='container'>
 <?php
 	echo $topBar;
