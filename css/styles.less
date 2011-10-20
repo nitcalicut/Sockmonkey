@@ -24,6 +24,8 @@ src: local('Pacifico Regular'), local('Pacifico-Regular'), url('../fonts/Pacific
 
 @lightGray	:	#eae7e7;
 @darkGray	:	#525252;
+@darkBlue	:	#1122CC;
+@lightGreen	:	#009933;
 
 .pacifico {
 	font-family: 'Pacifico';
@@ -31,6 +33,15 @@ src: local('Pacifico Regular'), local('Pacifico-Regular'), url('../fonts/Pacific
 
 .droid {
 	font-family: 'Droid Sans';
+}
+
+.pointer() {
+	cursor:pointer;
+}
+
+.tight() {
+	margin:0px;
+	padding:0px;
 }
 
 html {
@@ -80,7 +91,7 @@ font-size:20px;
 .roundedCorners(20px);
 border:1px solid @darkGray;
 color:@darkGray;
-cursor: pointer;
+.pointer();
 }
 
 nav ul#mainMenu li:hover {
@@ -100,7 +111,7 @@ margin:10px auto;
 }
 
 form#searchBox span {
-cursor:pointer;
+.pointer();
 width:200px;
 }
 
@@ -123,7 +134,7 @@ width:200px;
 	font-size: 25px;
 	height: 20px;
 	line-height: 20px;
-	margin: 25px 0;
+	margin: 25px 0;line-height: 0px;
 	position: relative;
 	color: @darkGray;
 	}
@@ -155,4 +166,41 @@ width:200px;
 	height: 32px;
 	width: 100%;
 	}
+}
+
+div#searchResults {
+	.roundedCorners(10px);
+	.droid();
+	padding:10px;
+	width:900px;
+	margin:10px auto;
+	min-height:400px;
+	background:#efefef;
+	font-size: 22px;
+	line-height:24px;
+
+	span.name {
+		color: @darkBlue;
+		.tight();
+		display:inline-block;
+		font-size:21px;
+		line-height: 0px;
+		.pointer();
+	}
+	span.tid {
+		font-size:16px;
+		.tight();
+		line-height: 0px;
+		display:inline-block;
+		color:@lightGreen;
+
+	}
+	span.contact {
+		font-size:14px;
+		.tight();
+		line-height: 0px;
+		display:inline-block;
+		color:@darkGray;
+	}
+
 }

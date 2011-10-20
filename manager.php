@@ -15,6 +15,20 @@
 <?php
 	echo $topBar;
 ?>
+
+<form id="searchBox">
+	<input type="search" id="search"/>
+	<span>Search<span>
+</form>
+
+<div id="searchResults">
+	<span class='name'>Jaseem abid</span><br />
+	<span class='tid'>TAT 3416</span><br />
+	<span class='contact'>email : jaseemabid@gmail.com </span><br />
+	<span class='contact'>Ph : +91 8891724372 </span><br />
+</div>
+
+
 </div><!-- /container -->
 <?php
 	echo $bottomBar;
