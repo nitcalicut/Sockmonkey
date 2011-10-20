@@ -31,10 +31,43 @@ header, footer, section, aside, nav, article {
 display: block;
 }
 
+@textLight : #efefef;
+@textDark : #565656;
+
 .pacifico {
 	font-family: 'Pacifico';
 }
 
 .droid {
 	font-family: 'Droid Sans';
+}
+
+
+html {
+font-size: 100.01%;
+min-height: 100%;
+margin: 0;
+}
+
+body {
+.droid();
+background:@textLight;
+margin: 0;
+color: @textDark;
+}
+
+a {
+color: @textDark;
+text-decoration:none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+#container{
+margin:0 auto -30px;
+width: 920px;
+min-height:600px;
+padding: 0px;
 }
