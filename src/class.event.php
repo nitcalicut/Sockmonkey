@@ -1,14 +1,14 @@
 <?php
 /*
 	This class contains functions to store, modify, access the event details.
-	@author Rahul		<rahul.pmna@gmail.com>
+	@author Rahul Raveendran VP		<rahul.pmna@gmail.com>
 	@author Mitaksh		<mitakshg@gmail.com>
 	
 */
 	include_once 'database.php';
 
 	class event {
-		private $eno,$ename,$eid,$emgr,$econtact,$emin,$emax,$efee,$eprize1,$eprize2,$eprize3;
+		private $eno,$ename,$eid,$emgr,$econtact,$emin,$emax,$efee,$eprize1,$eprize2,$eprize3,$resourcevar;
 		/**/
 		public function __construct() {
 			$a = func_get_args();
@@ -61,6 +61,7 @@
 		protected function viewEvent ($evid) {
 			$qry = "select * from event where ev_id='".$evid."'";
 			$res = dbquery($qry);
+			$this->resourcevar = (resource2array($res));
 			$rec = pg_fetch_row($res);
 			$this->eno = $rec[0];
 			$this->ename = $rec[1];
@@ -108,6 +109,16 @@
 						ev_prize3 = '".$this->eprize3."' 
 						where ev_no=".$this->eno."";
 			$res = dbquery($qry);
+		}
+		
+		/*
+		* List all EventIds
+		* @returns all event ids
+		*/
+		public static function listAllEventIds(){
+			$qry = "select ev_id from event";
+			$res = dbquery($qry);
+			return(resource2array($res));
 		}
 	/*
 	* the following functions helps you to get data from the Object.
@@ -158,6 +169,9 @@
 		return $this->eprize3;
 	}
 	
+	public function getResourceVar() {
+		return $this->resourcevar;
+	}
 	/*
 	* the following functions helps you to set data to the Object.
 	* @Param $value is set correspondinlg to value-member of the class
@@ -208,5 +222,4 @@
 	}
 	
 }
-
 ?>
