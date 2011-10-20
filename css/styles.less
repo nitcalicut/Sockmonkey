@@ -1,0 +1,40 @@
+/* The main structural CSS sheet */
+
+/* Custom font embedding */
+@font-face {
+font-family: 'Droid Sans';
+font-style: normal;
+font-weight: normal;
+src: local('Droid Sans'), local('DroidSans'), url('../fonts/DroidSans.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Pacifico';
+font-style: normal;
+font-weight: normal;
+src: local('Pacifico Regular'), local('Pacifico-Regular'), url('../fonts/Pacifico.woff') format('woff');
+}
+
+/* Change selected text color */
+::-moz-selection {
+color:white;
+background:#3A75AF ;
+}
+::selection {
+color:white;
+background:#3A75AF ;
+}
+
+
+/* HTML5 good practice */
+header, footer, section, aside, nav, article {
+display: block;
+}
+
+.pacifico {
+	font-family: 'Pacifico';
+}
+
+.droid {
+	font-family: 'Droid Sans';
+}
