@@ -208,7 +208,7 @@ class registration
 			}
 		}
 		else{
-			echo "Captain missing";
+			return "Captain missing";
 		}
 	}
 
