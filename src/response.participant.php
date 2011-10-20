@@ -19,8 +19,7 @@
 	if(isset($_GET['participantinfo'])){
 		echo json_encode(participantInfo($_GET['participantinfo']));
 	}
-	if(isset($_GET['pid'])&&
-		isset($_GET['pname'])&&
+	if(isset($_GET['pname'])&&
 		isset($_GET['pemail'])&&
 		isset($_GET['pclg'])&&
 		isset($_GET['pcntct'])&&
@@ -28,7 +27,7 @@
 		isset($_GET['pgender'])&&
 		isset($_GET['preq'])&&
 		isset($_GET['pnitc'])){
-		newUser($_GET['pid'],$_GET['pname'],$_GET['pemail'],$_GET['pclg'],$_GET['pcntct'],$_GET['pstate'],$_GET['pgender'],$_GET['preq'],$_GET['pnitc']);
+		newUser($_GET['pname'],$_GET['pemail'],$_GET['pclg'],$_GET['pcntct'],$_GET['pstate'],$_GET['pgender'],$_GET['preq'],$_GET['pnitc']);
 	}
 	
 ?>
