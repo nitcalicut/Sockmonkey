@@ -42,7 +42,7 @@ class participant
 		$sql="SELECT pc_tatid, pc_confirm, pc_name, pc_college, pc_contact, pc_state, pc_gender, pc_accomreqst, pc_accomcaptainid, pc_nitcrollno FROM participant WHERE pc_tatid = '".$pid."'";
 		$prtcpnt=pg_fetch_assoc(dbquery($sql));
 		$this->pid=$prtcpnt['pc_tatid'];
-		$this->pcnfrm=$prtcpnt['pc_cnfrm'];
+		$this->pcnfrm=$prtcpnt['pc_confirm'];
 		$this->pname=$prtcpnt['pc_name'];
 		$this->pemail=$prtcpnt['pc_email'];
 		$this->pcoll=$prtcpnt['pc_college'];
@@ -84,6 +84,11 @@ class participant
 	public function getTatId(){
 		return $this->pid;
 	}
+	
+	public function getConfirmStatus(){
+		return array("tathvaid"=>$this->getTatId(),
+					"status"=>$this->pcnfrm);
+	}
 
 	public function getName(){
 		return $this->pname;
@@ -123,7 +128,7 @@ class participant
 
 	public static function search($arg){
 		$arg='%'.$arg.'%';
-		$sql="SELECT * FROM participant WHERE (pc_tatid LIKE '".$arg."') OR (pc_name LIKE '".$arg."') OR (pc_email LIKE '".$arg."')";
+		$sql="SELECT * FROM participant WHERE (pc_tatid ILIKE '".$arg."') OR (pc_name ILIKE '".$arg."') OR (pc_email ILIKE '".$arg."')";
 		$arr=resource2array(dbquery($sql));
 		return $arr;
 	}
