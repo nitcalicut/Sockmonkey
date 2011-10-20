@@ -50,4 +50,11 @@
 			$y=$obj->updateStatus('D');
 		return $y;
 	}
+	
+	/*
+		function creates a new user/participant
+	*/
+	function newUser($pid, $pname, $pemail, $pcoll, $pcntct, $pstate, $pgen, $preq, $pnitc) {
+		$obj = new participant($pid, $pname, $pemail, $pcoll, $pcntct, $pstate, $pgen, $preq, $pnitc);
+	}
 ?>
