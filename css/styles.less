@@ -31,8 +31,10 @@ header, footer, section, aside, nav, article {
 display: block;
 }
 
-@textLight : #efefef;
-@textDark : #565656;
+@textLight	:	#efefef;
+@textDark	:	#565656;
+@lightGrey	:	#F5F5F5;
+@darkGrey	:	#E5E5E5;
 
 .pacifico {
 	font-family: 'Pacifico';
@@ -65,9 +67,21 @@ a:hover {
 text-decoration: underline;
 }
 
+#topbar {
+background: #454545 url('../images/header-logo.png') no-repeat;
+background-position: 5% 0%;
+border-bottom: 1px solid @darkGrey;
+height: 150px;
+margin:0;
+padding:0px 30px;
+overflow: hidden;
+}
+
 #container{
-margin:0 auto -30px;
+margin:50px auto -30px;
 width: 920px;
 min-height:600px;
 padding: 0px;
 }
+
+
