@@ -3,11 +3,11 @@
 	include_once 'interface.registration.php';
 
 	if(isset($_POST['eventid'])) {
-		return json_encode(getteamid($_POST['eventid']));
+		echo json_encode(getTeamId($_POST['eventid']));
 	}
 
 	if(isset($_POST['tatid'])){
-		return json_encode(parteventlist($_POST['tatid']));
+		echo json_encode(partEventList($_POST['tatid']));
 	}
 
 	if(isset($_POST['rgeventid']) && 
@@ -19,7 +19,7 @@
 		isset($_POST['rgpart4']) &&
 		isset($_POST['rgpart5']) &&
 		isset($_POST['rgpart6'])){
-			updateteam($_POST['rgeventid'],
+			updateTeam($_POST['rgeventid'],
 						$_POST['rgteamid'],
 						$_POST['rgcaptainid'],
 						$_POST['rgpart1'],
@@ -31,7 +31,7 @@
 	}
 
 	if(isset($_POST['key'])){
-		return json_encode(searchteam($_POST['key']));
+		echo json_encode(searchTeam($_POST['key']));
 	}
 
 	if(isset($_POST['rgeventid']) &&
@@ -42,7 +42,7 @@
 						isset($_POST['rgpart3']) &&
 						isset($_POST['rgpart4']) &&
 						isset($_POST['rgpart5']) &&
-						isset($_POST['rgpart6']){
+						isset($_POST['rgpart6'])){
 		createteam($_POST['rgeventid'],
 					$_POST['rgteamid'],
 					$_POST['rgcaptainid'],
@@ -54,8 +54,8 @@
 					$_POST['rgpart6']);
 	}
 
-	if(isset($_POST['eventid'])){
-		return json_encode(listeventteams($_POST['eventid']));
+	if(isset($_GET['eventid'])){
+		echo json_encode(listEventTeams($_GET['eventid']));
 	}
 ?>
 
