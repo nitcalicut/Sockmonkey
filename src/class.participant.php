@@ -127,7 +127,7 @@ class participant
 
 	public static function search($arg){
 		$arg='%'.$arg.'%';
-		$sql="SELECT * FROM participant WHERE (pc_tatid LIKE '".$arg."') OR (pc_name LIKE '".$arg."') OR (pc_email LIKE '".$arg."')";
+		$sql="SELECT * FROM participant WHERE (pc_tatid ILIKE '".$arg."') OR (pc_name ILIKE '".$arg."') OR (pc_email ILIKE '".$arg."')";
 		$arr=resource2array(dbquery($sql));
 		return $arr;
 	}
