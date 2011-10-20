@@ -2,9 +2,22 @@
 	include_once 'class.participant.php';
 	include_once 'class.registration.php';
 	include_once 'class.accommodation.php';
+	
 	function participantSearch($arg){
 		return participant::search($arg);
 	}
+	
+	function participantInfo($tid){
+		$p = new participant($tid);
+		$arr = array("tathva_id" => $p->getTatId(),
+					"name" => $p->getName(),
+					"college" => $p->getCollege(),
+					"contact"=>$p->getContact(),
+					"state" => $p->getAccomRequest(),
+					"roll"=>$p->getNitcRollNo());
+		return $arr;
+	}
+	
 	function participantConfirm($tid){
 		$p = new participant($tid);
 		$p->updateStatus("Y");
