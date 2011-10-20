@@ -19,15 +19,14 @@
 	if(isset($_GET['participantinfo'])){
 		echo json_encode(participantInfo($_GET['participantinfo']));
 	}
-	if(isset($_GET['pname'])&&
-		isset($_GET['pemail'])&&
-		isset($_GET['pclg'])&&
-		isset($_GET['pcntct'])&&
-		isset($_GET['pstate'])&&
-		isset($_GET['pgender'])&&
-		isset($_GET['preq'])&&
-		isset($_GET['pnitc'])){
-		newUser($_GET['pname'],$_GET['pemail'],$_GET['pclg'],$_GET['pcntct'],$_GET['pstate'],$_GET['pgender'],$_GET['preq'],$_GET['pnitc']);
+	if(isset($_POST['pname'])&&
+		isset($_POST['pemail'])&&
+		isset($_POST['pclg'])&&
+		isset($_POST['pcntct'])&&
+		isset($_POST['pstate'])&&
+		isset($_POST['pgender'])&&
+		isset($_POST['preq'])){
+		echo json_encode(newUser($_POST['pname'],$_POST['pemail'],$_POST['pclg'],$_POST['pcntct'],$_POST['pstate'],$_POST['pgender'],$_POST['preq']));
 	}
 	
 ?>
