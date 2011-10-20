@@ -1,6 +1,6 @@
 <?php
 	
-	include_once 'interface.accommodation.php';
+	include_once 'interface.php';
 	
 	if(isset($_POST['captid'])&&
 		isset($_POST['items'])&&

@@ -13,11 +13,11 @@
 	}
 	
 	if(isset($_GET['participantevent'])){
-		echo json_encode(participantEvents($_GET['participantevent']));
+		echo participantEvents($_GET['participantevent']);
 	}
 	
 	if(isset($_GET['participantinfo'])){
-		echo json_encode(participantInfo($_GET['participantinfo']));
+		echo participantInfo($_GET['participantinfo']);
 	}
 	if(isset($_POST['pname'])&&
 		isset($_POST['pemail'])&&
