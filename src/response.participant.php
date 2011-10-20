@@ -12,4 +12,8 @@
 		participantConfirm($_GET['confirm']);
 	}
 	
+	if(isset($_GET['participantevent'])){
+		echo json_encode(participantEvents($_GET['participantevent']));
+	}
+	
 ?>
