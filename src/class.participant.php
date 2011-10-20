@@ -86,8 +86,7 @@ class participant
 	}
 	
 	public function getConfirmStatus(){
-		return array("tathvaid"=>$this->getTatId(),
-					"status"=>$this->pcnfrm);
+		return $this->pcnfrm;
 	}
 
 	public function getName(){
