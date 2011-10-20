@@ -28,7 +28,7 @@
 							<div id="sm_form_body">
 								<div id="sm_form_main">
 									<div id="sm_form_main_body">
-										<form id="sm_form_login" action="src/interface.participant.php" method="POST">
+										<form id="sm_form_login" action="src/response.participant.php" method="POST">
 											<table class="sm_form_table">
 												<tr class="sm_datarow">
 													<th class="sm_table_label">
@@ -64,12 +64,20 @@
 												</tr>
 												<tr class="sm_datarow">
 													<th class="sm_table_label">
+														state:
+													</th>
+													<td class="sm_data">
+														<input class="sm_text" type="text" name="pstate">
+													</td>
+												</tr>
+												<tr class="sm_datarow">
+													<th class="sm_table_label">
 														Gender:
 													</th>
 													<td class="sm_data">
-														<select>
-															<option>Male</option>
-															<option>Female</option>
+														<select name="pgender">
+															<option value="m">Male</option>
+															<option value="f">Female</option>
 														</select>
 													</td>
 												</tr>
@@ -79,8 +87,8 @@
 													</th>
 													<td class="sm_data">
 														
-															<input type="radio" name="yes" value="Y" /> YES<br />
-															<input type="radio" name="yes" value="N" /> NO<br />
+															<input type="radio" name="preq" value="Y" /> YES<br />
+															<input type="radio" name="preq" value="N" /> NO<br />
 														
 													</td>
 												</tr>

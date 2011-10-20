@@ -32,7 +32,7 @@
 	function genTathvaId(){
 		$obj=new participant();
 		$temp=$obj->getLastId();
-		$temp=$temp+3001;
+		$temp=$temp+2001;
 		$str='TAT'."$temp";
 		return $str;
 	}
@@ -54,10 +54,10 @@
 	/*
 		function creates a new user/participant
 	*/
-	function newUser($pname, $pemail, $pcoll, $pcntct, $pstate, $pgen, $preq, $pnitc) {
+	function newUser($pname, $pemail, $pcoll, $pcntct, $pstate, $pgen, $preq) {
 		$pid = genTathvaId();
-		echo $pid;
-		$obj = new participant($pid, $pname, $pemail, $pcoll, $pcntct, $pstate, $pgen, $preq, $pnitc);
+		$obj = new participant($pid, $pname, $pemail, $pcoll, $pcntct, $pstate, $pgen, $preq,"");
 		echo "success";
+		return $pid;
 	}
 ?>
