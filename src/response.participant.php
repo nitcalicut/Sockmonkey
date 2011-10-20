@@ -2,10 +2,10 @@
 	/**
 	* Participant JSON's
 	*/
-	include_once 'interface.participant.php';
+	include_once 'interface.php';
 	
 	if(isset($_GET['search'])){
-		echo json_encode(participantSearch($_GET['search']));
+		echo participantSearch($_GET['search']);
 	}
 	
 	if(isset($_GET['confirm'])){
@@ -26,7 +26,7 @@
 		isset($_POST['pstate'])&&
 		isset($_POST['pgender'])&&
 		isset($_POST['preq'])){
-		echo json_encode(newUser($_POST['pname'],$_POST['pemail'],$_POST['pclg'],$_POST['pcntct'],$_POST['pstate'],$_POST['pgender'],$_POST['preq']));
+		echo newUser($_POST['pname'],$_POST['pemail'],$_POST['pclg'],$_POST['pcntct'],$_POST['pstate'],$_POST['pgender'],$_POST['preq']);
 	}
 	
 ?>
