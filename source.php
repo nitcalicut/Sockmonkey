@@ -7,7 +7,7 @@ $header="
 	<script src='js/less-1.1.3.min.js' type='text/javascript'></script>";
 
 $scripts="
-	<script src='js/jquery-1.6.2.min.js' type='text/javascript'></script>
+	<script src='js/jquery.js' type='text/javascript'></script>
 	<script src='js/functions.js' type='text/javascript' ></script>";
 
 ?>
