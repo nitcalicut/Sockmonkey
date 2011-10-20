@@ -18,7 +18,7 @@
 
 <div class="g">
 	<h2>Register <strong></strong></h2>
-	<form method="post" action="">
+	<form method="post" action="src/response.participant.php">
 
 <label>
 	<strong>Username</strong>
