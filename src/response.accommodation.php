@@ -20,4 +20,5 @@
 	if(isset($_POST['captid'])){
 		accommodationDeleteTeam($_POST['captid']);
 	}
+	echo json_encode(listAccommodationData());
 ?>
