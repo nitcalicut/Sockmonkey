@@ -33,11 +33,10 @@
 	function listEventTeams($eventid){
 		$allteams = registration::getTeamIds($eventid);
 		$cnt=count($allteams);
-		
 		$ev = new event($eventid);
-		$min = $ev -> getMinimum();
-		$max = $ev -> getMaximum();
-
+		$min = $ev->getMinimum();
+		$max = $ev->getMaximum();
+		
 		$res=array();
 		
 		$i=0;
@@ -58,8 +57,7 @@
 				{
 					if($pc[$j]!='')
 						$csv.="$pc[$j],";
-					$j++;	
-					
+					$j++;
 				}
 				$csv=trim($csv,",");
 				
