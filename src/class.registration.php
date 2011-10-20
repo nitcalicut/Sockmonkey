@@ -200,7 +200,7 @@ class registration
 			if($this->rgConfirm4 == 'Y' || $this->rgConfirm4 == 'y'){	$count++;	}
 			if($this->rgConfirm5 == 'Y' || $this->rgConfirm5 == 'y'){	$count++;	}
 			if($this->rgConfirm6 == 'Y' || $this->rgConfirm6 == 'y'){	$count++;	}
-			if($count>=$min && $count<=max){
+			if($count>=$min && $count<=$max){
 				return "Confirm";
 			}
 			else{
@@ -213,7 +213,7 @@ class registration
 	}
 
 	public function getLastID($eventid){
-		$sql="SELECT COUNT (*) FROM participant WHERE rg_eventid='$eventid'";
+		$sql="SELECT COUNT (*) FROM registration WHERE rg_eventid='$eventid'";
 		$row=pg_fetch_row(dbquery($sql));
 		return $row[0];
 	}
