@@ -1,30 +1,32 @@
 <?php
+
+	/*
+	This file contains functions to handle the tathva event details.
+	@author Rahul Raveendran VP  <rahul.pmna@gmail.com>
+	*/
+	
 	include "interface.event.php";
 
 	/*
-	* Function gives you all details of an event.
-	* @param $evid EventId
-	* @return json encoded form of details.
+	* "preeventid" is passed to get all details of event.
+	* @return json encoded form of all details of a particular event.
 	*/
-	function eventInfo($evid) {
-		return json_encode(getEventInfo($evid));
+	if (isset($_POST['preeventid'])) {
+		return json_encode(getEventInfo($_POST['eventid']));
 	}
 
 	/*
-	* Function gives you all prize details (1st,2nd & 3rd) of an event.
-	* @param $evid EventId
+	* "posteventid" is passed to get details of 1st,2nd and 3rd prize when event is over.
 	* @return json encoded form of details.
 	*/
-	function prizeList($evid) {
-		return json_encode(getEventWinnersInfo($evid));
+	if (isset($_POST['posteventid'])) {
+		return json_encode(getEventWinnersInfo($_POST['eventid']));
 	}
 
 	/*
-	* Function gives you all details of an event.
-	* @param $evid EventId
-	* @return json encoded form of details.
+	* here the updation of prizeList is happening :-)
 	*/
-	function updatePrize($evid,$p1,$p2,$p3) {
+	if (isset($_POST['eventid']) && isset($_POST['prize1']) && isset($_POST['prize2']) && isset($_POST['prize3'])) {
 		updatePrizelist($evid,$p1,$p2,$p3);
 	}
 ?>
