@@ -17,7 +17,7 @@
 ?>
 
 <form id="searchBox">
-	<input type="search" value="" />
+	<input type="search" id="search"/>
 	<span>Search<span>
 </form>
 
