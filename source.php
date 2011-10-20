@@ -3,9 +3,8 @@
 $header="
 	<meta charset='UTF-8' />
 	<link rel='shortcut icon' href='pics/favicon.png'>
-	<link rel='stylesheet' href='css/structure.css'/>
-	<link rel='stylesheet' href='css/popup.css'/>
-	<link rel='stylesheet' href='css/storybox.css'/>";
+	<link rel='stylesheet/less' type='text/css' href='css/styles.less'>
+	<script src='js/less.js' type='text/javascript'></script>";
 
 $scripts="
 	<script src='js/jquery-1.6.2.min.js' type='text/javascript'></script>
