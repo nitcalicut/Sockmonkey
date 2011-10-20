@@ -8,7 +8,7 @@
 	/**
 	* Include database settings.
 	*/
-	require_once (realpath(dirname(__FILE__).'/./settings.php'));
+	require_once 'settings.php';
 
 	/**
 	* Function to connect to the MAIN database. Creates a persistent connection.
