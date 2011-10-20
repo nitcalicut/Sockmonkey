@@ -224,6 +224,6 @@
 			}
 			$i++;
 		}
-		return $res; 
+		return json_encode($res); 
 	}
 ?>
