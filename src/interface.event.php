@@ -10,7 +10,7 @@
 	* @param : $evid (EventId of a particular event)
 	* @returns : $evarray (Details of all events as an array)
 	*/
-	function getAllEventInfo($evid) {
+	function getEventInfo($evid) {
 		$ob = new event($evid);
 		$evarray = $ob -> getResourceVar();
 		return($evarray);
