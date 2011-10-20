@@ -10,7 +10,7 @@
 	* @param : $evid (EventId of a particular event)
 	* @returns : $evarray (Details of all events as an array)
 	*/
-	function getAllEventInfo($evid) {
+	function getEventInfo($evid) {
 		$ob = new event($evid);
 		$evarray = $ob -> getResourceVar();
 		return($evarray);
@@ -37,6 +37,13 @@
 		return (event::listAllEventIds());
 	}
 	
+	function updatePrizelist($evid,$pz1,$pz2,$pz3) {
+		$ob = new event($evid);
+		$ob -> setPrize1($pz1);
+		$ob -> setPrize2($pz2);
+		$ob -> setPrize3($pz3);
+		$ob -> updateEvent();
+	}
 #	/*
 #	* @func : 
 #	*/
