@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<div id='topbar'></div>
+<a href='/Sockmonkey'><div id='topbar'></div></a>
 <div id='container'>
 <?php
 	echo $topBar;
