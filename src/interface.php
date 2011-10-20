@@ -27,8 +27,19 @@
 					"college" => $p->getCollege(),
 					"contact"=>$p->getContact(),
 					"state" => $p->getAccomRequest(),
-					"roll"=>$p->getNitcRollNo());
+					"roll"=>$p->getNitcRollNo(),
+					"status"=>$p->getConfirmStatus());
 		return json_encode($arr);
+	}
+	
+	/**
+	* Confirms a Tathva ID of a participant.
+	* Tested.
+	*/
+	function participantConfirm($tid){
+		$p = new participant($tid);
+		$p->updateStatus("Y");
+		registration::confirmEventParticipation($tid);
 	}
 	
 ?>
