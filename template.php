@@ -14,7 +14,6 @@
 <div id='container'>
 <?php
 	echo $topBar;
-	echo $feedback; 
 ?>
 </div><!-- /container -->
 <?php

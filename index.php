@@ -14,8 +14,10 @@
 <div id='container'>
 <?php
 	echo $topBar;
-	echo $feedback; 
 ?>
+
+test
+
 </div><!-- /container -->
 <?php
 	echo $bottomBar;
