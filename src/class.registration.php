@@ -49,7 +49,7 @@ class registration
 		$this->rgConfirm6=$user['rg_cnfrm6'];
 		
 	}
-
+	
 	protected function create($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6,$rgPart7){
 		$this->rgEventId	=	pg_escape_string($rgEventId);
 		$this->rgTeamId		=	pg_escape_string($rgTeamId);
@@ -69,7 +69,14 @@ class registration
 										rg_part3,
 										rg_part4,
 										rg_part5,
-										rg_part6) 
+										rg_part6,
+										rg_cnfrm1,
+										rg_cnfrm2,
+										rg_cnfrm3,
+										rg_cnfrm4,
+										rg_cnfrm5,
+										rg_cnfrm6,
+										rg_captaincnfrm) 
 							values ('".$this->rgEventId."',
 									'".$this->rgTeamId."',
 									'".$this->rgCaptainId."',
@@ -78,7 +85,7 @@ class registration
 									'".$this->rgPart3."',
 									'".$this->rgPart4."',
 									'".$this->rgPart5."',
-									'".$this->rgPart6."') returning rg_no";
+									'".$this->rgPart6."','Y','Y','Y','Y','Y','Y','Y') returning rg_no";
 		$user=pg_fetch_assoc(dbquery($sql));
 		$this->rgNo=$user['rg_no'];
 	}
