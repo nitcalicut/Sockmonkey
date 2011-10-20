@@ -211,11 +211,17 @@ class registration
 			echo "Captain missing";
 		}
 	}
+
 	public function getLastID($eventid){
 		$sql="SELECT COUNT (*) FROM participant WHERE rg_eventid='$eventid'";
 		$x=pg_fetch_row(dbquery($sql));
 		return $x[0];
 	}
+	
+	public static function getTeamIds($eid){
+		$sql="SELECT rg_teamid FROM registration WHERE rg_eventid='".$eid."'";
+		$row=pg_fetch_assoc(dbquery($sql));
+		return $row['rg_teamid'];
 }
 
 ?>
