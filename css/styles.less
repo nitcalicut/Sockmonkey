@@ -110,7 +110,7 @@ width:700px;
 margin:10px auto;
 }
 
-form#searchBox span {
+form#searchBox span#SearchButton {
 .pointer();
 width:200px;
 }
@@ -171,6 +171,7 @@ width:200px;
 div#searchResults {
 	.roundedCorners(10px);
 	.droid();
+	cursor: default;
 	padding:10px;
 	width:900px;
 	margin:10px auto;
@@ -182,7 +183,6 @@ div#searchResults {
 	span.name {
 		color: @darkBlue;
 		.tight();
-		display:inline-block;
 		font-size:21px;
 		line-height: 0px;
 		.pointer();
@@ -191,7 +191,6 @@ div#searchResults {
 		font-size:16px;
 		.tight();
 		line-height: 0px;
-		display:inline-block;
 		color:@lightGreen;
 
 	}
@@ -199,8 +198,6 @@ div#searchResults {
 		font-size:14px;
 		.tight();
 		line-height: 0px;
-		display:inline-block;
 		color:@darkGray;
 	}
-
 }

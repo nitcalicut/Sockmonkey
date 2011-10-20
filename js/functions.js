@@ -28,3 +28,35 @@ if(typeof String.prototype.supplant !== 'function') {
 			});
 	};
 }
+
+var sockmonkey = {
+	getUsers : function(Name) {
+			$.getJSON( 'src/response.participant.php?search='+Name , function(json) {
+				$('div#searchResults').html('');
+				var box, i;
+				for(i = 0; i < json.length; i++) {
+					box = sockmonkey.templates.Search.supplant(json[i]);
+					$('div#searchResults').append(box);
+				}
+			});
+		}
+};
+
+sockmonkey.templates = { 
+	Search : "<span class='name'>{pc_name}</span><br /><span class='tid'>{pc_tatid} : </span><span class='tid'>{pc_confirm}</span><br /><span class='contact'>email : {pc_email} </span><br /><span class='contact'>College :</span><span class='contact'>{pc_college}</span><br /><br />"
+};
+
+
+$(document).ready(function(){
+	$('span#SearchButton').click(function(){
+		n = $('input#search').attr('value');
+		sockmonkey.getUsers(n);
+	});
+	if(getUrlVars()['search']) {
+		$('input#search').attr('value', getUrlVars()['search']);
+		sockmonkey.getUsers(getUrlVars()['search']);
+	}
+});
+
+
+
