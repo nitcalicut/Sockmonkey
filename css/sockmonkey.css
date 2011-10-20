@@ -74,7 +74,9 @@ clear::after {
 }
 #sm_form_body{
 	margin-bottom: 15px;
-	padding-top: 10px;
+}
+.sm_form_table_part{
+	color:black;
 }
 .sm_tab_body_content{
 	position:relative;
@@ -93,9 +95,15 @@ clear::after {
 	margin:20px;
 }
 
+#userdata_acco{
+	color:red;
+}
+
+
 #userdata tr, #userdata th{
 	border-width:0px;
 }
+
 
 
 #sm_form_main{
@@ -153,7 +161,7 @@ clear::after {
 	width:90px;
 }
 .sm_footer{
-	position:absolute;
+	position:relative;
 	bottom:0px;
 	left:0px;
 	float:left;
@@ -210,6 +218,7 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {
 	border-top: none;
 	clear: both;
 	width: 100%;
+	float:left;
 	background: #fff;
 	-moz-border-radius-bottomright: 5px;
 	-khtml-border-radius-bottomright: 5px;
@@ -244,6 +253,7 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {
 	position: relative;
 	background: #fff;
 	opacity: 0.7;
+	float:left;
 	width: 100%;
 	min-height: 200px;
 	color: #000;
@@ -252,6 +262,12 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {
 	-webkit-border-radius: 20px;
 	font-weight:bold;
 	border:1px solid gray;
+}
+.sm_personal{
+	padding:10px;
+	position:relative;
+	border-top:1px solid black;
+	margin-top:10px;
 }
 .sm_tab_container {
 	width: 960px;
@@ -283,4 +299,7 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {
 
 .suggestionList li:hover {
 	background-color: #659CD8;
+}
+#userdata1{
+	color:red;
 }
