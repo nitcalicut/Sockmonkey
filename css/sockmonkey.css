@@ -90,21 +90,14 @@ clear::after {
 	margin-left:10px;
 }
 #userdata{
-	color:#666;
-	border-width:0px;
+	color:red;
+	
 	margin:20px;
 }
 
 #userdata_acco{
 	color:red;
 }
-
-
-#userdata tr, #userdata th{
-	border-width:0px;
-}
-
-
 
 #sm_form_main{
 	margin-left: auto;
@@ -170,6 +163,7 @@ clear::after {
 	background:#213E4A;
 	height:40px;
 	border-top:1px solid #213E4A;
+	margin-top:50px;
 
 }
 ul.tabs {

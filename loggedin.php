@@ -13,6 +13,9 @@
 					$("#sm_button_acc_show").click(function(){
 					accomodation();
 					});
+					$("#sm_submit").click(function() {
+						accomodationsubmit();
+					});
 					// Call the function to handle the AJAX.
 					// Pass the value of the text box to the function.
 					$("#sm_button").click(function(){
@@ -66,7 +69,7 @@
 			<li class="active"><a href="#tab1">tatva id reg</a></li>
 			<li><a href="#tab2">personal info</a></li>
 			<li><a href="#tab3">accomodation</a></li>
-			<li><a href="#tab4">tab4</a></li>
+			<li><a href="#tab4">Event Registration</a></li>
 			<li><a href="#tab5">tab5</a></li>
 		</ul>
 		<div class="sm_container">
@@ -108,6 +111,7 @@
 										<th>Name</th>
 										<th>TATid</th>
 										<th>Status</th>
+										<th>e/w</th>
 										<th>button</th>
 									</thead>
 									<tbody></tbody>
@@ -185,9 +189,17 @@
 								<tbody>
 								<tr class="sm_datarow">
 									<th class="sm_table_label">
-										Name:
+										captain Name:
 									</th>
 									<td><input type="text" id="sm_acco_cap" value="">
+									</td>
+									</tr>
+									<tr class="sm_datarow">
+									<th class="sm_table_label">
+										iteams:
+									</th>
+									<td class="sm_data">
+										<textarea id="sm_acco_iteams" name="sm_acco_iteams"rows="5" cols="20" style="margin-top:5px;"></textarea>
 									</td>
 								</tr>
 								<tr class="sm_datarow">
@@ -205,19 +217,11 @@
 										<textarea id="sm_acco_team" name="sm_acco_team"rows="5" cols="20" style="margin-top:5px;"></textarea>
 									</td>
 								</tr>
-								<tr class="sm_datarow">
-									<th class="sm_table_label">
-										iteams:
-									</th>
-									<td class="sm_data">
-										<textarea id="sm_acco_items" name="sm_acco_items"rows="5" cols="20" style="margin-top:5px;"></textarea>
-									</td>
-								</tr>
 								
 								<tr class="datarow">
 									<th class="label"></th>
 										<td class="data">
-											<input id="sm_submit" type="submit" name="submit" value="submit">
+											<input id="sm_submit" type="submit" value="submit">
 										</td>
 								</tr>
 							</tbody></table>
@@ -246,6 +250,132 @@
 			</div>
 			<div style="display: none;" id="tab4" class="tab_content">
 				<div class="sm_content_text">
+				
+				<form id="sm_form_login" action="">
+							<table class="sm_form_table_part">
+								<tbody>
+								<tr class="sm_datarow">
+									<th class="sm_table_label">
+										EventID:
+									</th>
+									<td>
+										<select type="password">
+											<option value="PTR">Pure Trics</option>
+															<option value="COL">Collision Course</option>
+															<option value="BAP">B-Aptist</option>
+															<option value="TYC">Tycoon</option>
+															<option value="CSE">Counter-Strike 1.6</option>
+															<option value="INT">Interrupteur</option>
+															<option value="CHE">Che Autic</option>
+															<option value="POD">Pod Design</option>
+															<option value="CGN">Coil Gun</option>
+															<option value=" KKT">KoderKombat</option>
+															<option value="DSQ">Descartes Square</option>
+															<option value="IVO">Inquisito Virtuoso</option>
+															<option value="BPA">Bizbio Perzanta</option>
+															<option value="AFE">Age of Floating Empires</option>
+															<option value="DRE">Dirt Race</option>
+															<option value="ORM">The Off Road MI</option>
+															<option value="ERN">Erecthion 5.0</option>
+															<option value="BEF">Befunge</option>
+															<option value="AQM">Aqua Missile</option>
+															<option value="AMB">AMPHI-BOaT</option>
+															<option value="CPE">Colour Palette</option>
+															<option value="KSC">Kinetic Sculpture</option>
+															<option value="ERR">E Racer</option>
+															<option value="PTF">Path to Fame</option>
+															<option value="CPN">Contraption</option>
+															<option value="ICT">Incarnate</option>
+															<option value="SBZ">Sociobizz '11</option>
+															<option value="MSD">Mouse Drive</option>
+															<option value="MMS">Minimouse v2</option>
+															<option value="TOW">Tux of War</option>
+															<option value="LOM">League of Machines</option>
+															<option value="SMO">Signal Maestro</option>
+															<option value="BPT">Blueprint</option>
+															<option value="TRA">Transporter</option>
+															<option value="GSM">3GSM</option>
+															<option value="SCI">SonicI</option>
+															<option value="FIF">Fifa 11</option></option>
+															<option value="NFS">NFS: Most Wanted</option>
+															<option value="RGM">Ragdoll Masters</option>
+															<option value="SFT">Super Street Fighter 4: Arcade Edition</option>
+															<option value="DOT">DotA</option>
+															<option value="QUZ">Tathva Quiz '11</option>
+															<option value="KKP">Koder Kup</option>
+															<option value="IEE">IEEE Interface '11</option>
+															<option value="RWS">Autonomous Robot for Waste Segregation</option>
+															<option value="DRS">Disaster Relief Transit Structure</option>
+															<option value="RVR">Riverfront Development</option></option>
+															<option value="SFD">Smart Furniture Design</option>
+															<option value="RCA">RC Aircraft Workshop</option>
+															<option value="AUT">Automotive & Engine Design</option>
+															<option value="ACC">Accelero-Botix</option>
+															<option value="CLO">Cloud Computing</option>
+															<option value="HAC">Hack Attack</option>
+															<option value="AST">Astro Photography</option>
+										</select>
+									</td>
+									</tr>
+									
+								<tr class="sm_datarow">
+									<th class="sm_table_label">
+										CaptainID:
+									</th>
+									<td><input type="text" id="sm_eve_cap" value="">
+									</td>
+								</tr>
+								<tr class="sm_datarow">
+									<th class="sm_table_label">
+										participant1:
+									</th>
+									<td><input type="text" id="sm_eve_par1" value="">
+									</td>
+								</tr>
+								<tr class="sm_datarow">
+									<th class="sm_table_label">
+										participant2:
+									</th>
+									<td><input type="text" id="sm_eve_par2" value="">
+									</td>
+								</tr>
+								<tr class="sm_datarow">
+									<th class="sm_table_label">
+										participant3:
+									</th>
+									<td><input type="text" id="sm_eve_par3" value="">
+									</td>
+								</tr>
+								<tr class="sm_datarow">
+									<th class="sm_table_label">
+										participant4:
+									</th>
+									<td><input type="text" id="sm_eve_par4" value="">
+									</td>
+								</tr><tr class="sm_datarow">
+									<th class="sm_table_label">
+										participant5:
+									</th>
+									<td><input type="text" id="sm_eve_par5" value="">
+									</td>
+								</tr>
+								<tr class="sm_datarow">
+									<th class="sm_table_label">
+										participant6:
+									</th>
+									<td><input type="text" id="sm_eve_par6" value="">
+									</td>
+								</tr>
+								<tr class="datarow">
+									<th class="label"></th>
+										<td class="data">
+											<input id="sm_eve_submit" type="submit" value="submit">
+										</td>
+								</tr>
+							</tbody></table>
+						</form>
+				
+				
 				</div>
 			</div>
 			<div style="display: none;" id="tab5" class="tab_content">
