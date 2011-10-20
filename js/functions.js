@@ -39,6 +39,16 @@ var sockmonkey = {
 					$('div#searchResults').append(box);
 				}
 			});
+		},
+	Search : function() {
+			$('span#SearchButton').click(function(){
+			n = $('input#search').attr('value');
+				sockmonkey.getUsers(n);
+			});
+			if(getUrlVars()['search']) {
+				$('input#search').attr('value', getUrlVars()['search']);
+				sockmonkey.getUsers(getUrlVars()['search']);
+			}
 		}
 };
 
@@ -48,14 +58,7 @@ sockmonkey.templates = {
 
 
 $(document).ready(function(){
-	$('span#SearchButton').click(function(){
-		n = $('input#search').attr('value');
-		sockmonkey.getUsers(n);
-	});
-	if(getUrlVars()['search']) {
-		$('input#search').attr('value', getUrlVars()['search']);
-		sockmonkey.getUsers(getUrlVars()['search']);
-	}
+	sockmonkey.Search();
 });
 
 
