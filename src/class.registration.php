@@ -174,6 +174,54 @@ class registration
 								rg_captaincnfrm = CASE WHEN rg_captainid = '$tid' then 'Y' ELSE 'N' END";
 		dbquery($sql);
 	}
+	
+	/** Function that returns all the Team ID's (and the corresponding EventID for each TeamID) of a particular participant given his/her Tathva ID.
+		*/
+	public static function participantEvents($tid){
+		$sql="Select rg_teamid, rg_eventid from registration where rg_part1 = '$tid' OR
+													rg_part2 = '$tid' OR
+													rg_part3 = '$tid' OR
+													rg_part4 = '$tid' OR
+													rg_part5 = '$tid' OR
+													rg_part6 = '$tid' OR
+													rg_captainid = '$tid'";
+		return resource2array(dbquery($sql));
+	}
+	
+	/** Function that confirms a Team based on certain conditions
+		*/
+	public function eventConfirm($min,$max){
+		$count=0;
+		if($this->rgCaptainConfirm == 'Y' || $this->rgCaptainConfirm == 'y'){
+			$count=1;
+			if($this->rgConfirm1 == 'Y' || $this->rgConfirm1 == 'y'){	$count++;	}
+			if($this->rgConfirm2 == 'Y' || $this->rgConfirm2 == 'y'){	$count++;	}
+			if($this->rgConfirm3 == 'Y' || $this->rgConfirm3 == 'y'){	$count++;	}
+			if($this->rgConfirm4 == 'Y' || $this->rgConfirm4 == 'y'){	$count++;	}
+			if($this->rgConfirm5 == 'Y' || $this->rgConfirm5 == 'y'){	$count++;	}
+			if($this->rgConfirm6 == 'Y' || $this->rgConfirm6 == 'y'){	$count++;	}
+			if($count>=$min && $count<=max){
+				return "Confirm";
+			}
+			else{
+				return "Minimum not satisfied";
+			}
+		}
+		else{
+			echo "Captain missing";
+		}
+	}
+
+	public function getLastID($eventid){
+		$sql="SELECT COUNT (*) FROM participant WHERE rg_eventid='$eventid'";
+		$x=pg_fetch_row(dbquery($sql));
+		return $x[0];
+	}
+	
+	public static function getTeamIds($eid){
+		$sql="SELECT rg_teamid FROM registration WHERE rg_eventid='".$eid."'";
+		$row=pg_fetch_assoc(dbquery($sql));
+		return $row['rg_teamid'];
 }
 
 ?>

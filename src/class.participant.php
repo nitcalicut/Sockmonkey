@@ -190,9 +190,38 @@ class participant
 		if($r)
 			return 1;
 		else
-			return 0;				
+			return 0;
 	}
-	
+
+	public function getLastId(){
+		$sql="SELECT COUNT (*) FROM participant";
+		$x=pg_fetch_row(dbquery($sql));
+		return $x[0];
+	}
+
+	/**
+	* Static function that inserts an Accomodation captain for a set of participants whose tathva ID's are contained in array $team[].
+	* @param string $captid Tathva ID of the Accomodated Team's Captain.
+	* @return integer (1: exists | 0: does not exists)
+	*/
+	public static function insertAccomCaptain($team,$captid){
+		$cnt=count($team);
+		$i=0;
+		$sql="BEGIN;";
+		while($i < $cnt)
+		{
+			$sql .="UPDATE participant SET pc_accomcaptainid='$captid' WHERE pc_tatid='{$team[$i]}';";
+			$i++;
+		}
+		$sql .="COMMIT";
+		$r=dbquery($sql);
+		if($r)
+			return 1;
+		else
+			return 0;
+	}
+
+
 #	THE FOLLOWING FUNCTIONS, IF REQUIRED, CAN BE UNCOMMENTED  
 #	
 #	/**

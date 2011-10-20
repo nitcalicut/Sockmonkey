@@ -86,7 +86,6 @@ class accommodation
 	* @param string $aroom Room allotted to the team.
 	* @return integer (1:exists | 0:does not exist)
 	*/
-
 	public function updateInfo($acaptid,$aitems,$aroom,$adereg){
 		$acaptid=pg_escape_string($acaptid);
 		$aitems=pg_escape_string($aitems);
@@ -97,12 +96,33 @@ class accommodation
 
 		$r=dbquery($sql);
 		if($r)
-		{echo 'fired';
 			return 1;
-			}
 		else
 			return 0;
 	}
+
+	/**
+	* Static function that deletes an accommodated Team's information.
+	* @return integer (1:exists | 0:does not exist)
+	*/
+	public function deleteTeam(){
+		$sql="DELETE FROM accomodation WHERE ac_captainid='".$this->acaptid."'";
+		$r=dbquery($sql);
+		if($r)
+			return 1;
+		else
+			return 0;
+	}
+
+	/**
+	* Static function that retrieves all accommodated Teams' information.
+	*/
+	public static function getAllData(){
+		$sql="SELECT * FROM accomodation";
+		$data=resource2array(dbquery($sql));
+		return $data;
+	}
+	
 	
 #	/**
 #	* Static function that updates the current Accomodation status to $s. The team captain's ID is given by acaptid.
