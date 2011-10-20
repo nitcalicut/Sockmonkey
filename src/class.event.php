@@ -62,6 +62,7 @@
 			$qry = "select * from event where ev_id='".$evid."'";
 			$res = dbquery($qry);
 			$this->resourcevar = (resource2array($res));
+			$res = dbquery($qry);
 			$rec = pg_fetch_row($res);
 			$this->eno = $rec[0];
 			$this->ename = $rec[1];
