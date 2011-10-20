@@ -2,28 +2,60 @@
 	
 	include_once 'interface.registration.php';
 
-	function teamid($eventid) {
-		return json_encode(getTeamId($eventid));
+	if(isset($_POST['eventid'])) {
+		return json_encode(getteamid($_POST['eventid']));
 	}
 
-	function eventList($tatid){
-		return json_encode(partEventList($tatid));
+	if(isset($_POST['tatid'])){
+		return json_encode(parteventlist($_POST['tatid']));
 	}
 
-	function updateReg($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6){
-		updateTeam($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6);
+	if(isset($_POST['rgeventid']) && 
+		isset($_POST['rgteamid']) &&
+		isset($_POST['rgcaptainid']) &&
+		isset($_POST['rgpart1']) &&
+		isset($_POST['rgpart2']) &&
+		isset($_POST['rgpart3']) &&
+		isset($_POST['rgpart4']) &&
+		isset($_POST['rgpart5']) &&
+		isset($_POST['rgpart6'])){
+			updateteam($_POST['rgeventid'],
+						$_POST['rgteamid'],
+						$_POST['rgcaptainid'],
+						$_POST['rgpart1'],
+						$_POST['rgpart2'],
+						$_POST['rgpart3'],
+						$_POST['rgpart4'],
+						$_POST['rgpart5'],
+						$_POST['rgpart6']);
 	}
 
-	function searchReg($key){
-		return json_encode(searchTeam($key));
+	if(isset($_POST['key'])){
+		return json_encode(searchteam($_POST['key']));
 	}
 
-	function insertTeam($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6){
-		createTeam($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6);
+	if(isset($_POST['rgeventid']) &&
+						isset($_POST['rgteamid']) &&
+						isset($_POST['rgcaptainid']) &&
+						isset($_POST['rgpart1']) &&
+						isset($_POST['rgpart2']) &&
+						isset($_POST['rgpart3']) &&
+						isset($_POST['rgpart4']) &&
+						isset($_POST['rgpart5']) &&
+						isset($_POST['rgpart6']){
+		createteam($_POST['rgeventid'],
+					$_POST['rgteamid'],
+					$_POST['rgcaptainid'],
+					$_POST['rgpart1'],
+					$_POST['rgpart2'],
+					$_POST['rgpart3'],
+					$_POST['rgpart4'],
+					$_POST['rgpart5'],
+					$_POST['rgpart6']);
 	}
 
-	function listConfirmedTeams($eventid){
-		return json_encode(listEventTeams($eventid));
+	if(isset($_POST['eventid'])){
+		return json_encode(listeventteams($_POST['eventid']));
 	}
 ?>
 
