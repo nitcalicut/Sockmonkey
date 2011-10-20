@@ -25,6 +25,6 @@
 	* @return json encoded form of details.
 	*/
 	function updatePrize($evid,$p1,$p2,$p3) {
-		return json_encode();
+		updatePrizelist($evid,$p1,$p2,$p3);
 	}
 ?>
