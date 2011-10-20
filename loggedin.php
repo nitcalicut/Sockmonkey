@@ -22,32 +22,33 @@
 						
 					});
 					$("#sm_acco_cap1button").click(function(){
-					$.getJSON("src/response.participantsearch.php?sm_inputsearch="+$('#sm_acco_cap1').val(),function(data){
+					$.getJSON("src/response.participant.php?participantevent="+$('#sm_acco_cap1').val(),function(data){
 						$("#userdata tbody").html("");
 							$.each(data, function(i,user1){
-								$("input#sm_acco_cap1").val(user1.pc_tatid);
+								//$("input#sm_acco_cap1").val(user1.pc_tatid);
 								var tblRow1 =
 								"<tr>"
-								+"<td>"+user1.pc_name+"</td>"
-								+"<td>"+user1.pc_tatid+"</td>"
-								+"<td>"+i+"</td>"
-								+"<td>"+user1.pc_confirm+"</td>"
+								+"<td>"+user1.rg_teamid+"</td>"
+								+"<td>"+user1.rg_eventid+"</td>"
 								+"</tr>"
 								$(tblRow1).appendTo("#userdata tbody");
 							});
 						}
 					);
-					$.getJSON("src/response.participantsearch.php?sm_inputsearch="+$('#sm_acco_cap1').val(),function(data){
-						$.each(data, function(i,user1){
-								$("input#sm_personal_name").val(user1.pc_name);
-								$("input#sm_personal_email").val(user1.pc_tatid);
-						});
+					$.getJSON("src/response.participant.php?participantinfo="+$('#sm_acco_cap1').val(),function(data){
+								$("input#sm_personal_name").val(data.name);
+								$("input#sm_personal_college").val(data.college);
+								$("input#sm_personal_contact").val(data.contact);
+								$("input#sm_personal_state").val(data.state);
+								$("input#sm_personal_roll").val(data.roll);
 					});
 					});
-					
 						$('#sm_personal_button').click(function() {
 							$('input#sm_personal_name').attr('disabled', false);
-							$('input#sm_personal_email').attr('disabled', false);
+							$('input#sm_personal_college').attr('disabled', false);
+							$("input#sm_personal_contact").attr('disabled', false);
+							$("input#sm_personal_state").attr('disabled', false);
+							$("input#sm_personal_roll").attr('disabled', false);
 							
 						});
 						$("#sm_personal_submit").click(function() {
@@ -115,9 +116,7 @@
 						</div>
 					</div>
 					
-					<form>
-						<input type="submit" name="sm_submit_confirm" id="sm_submit_confirm" value="confirm">
-					</form>
+
 				</div>
 			</div>
 			<div style="display: none;" id="tab2" class="tab_content">
@@ -127,19 +126,52 @@
 					<table id="userdata" border="1">
 						<thead>
 							<th>TEAMID</th>
-							<th>TATID</th>
-							<th>Event</th>
-							<th>getStatus</th>
+							<th>EventID</th>
 						</thead>
 						<tbody></tbody>
 					</table>
 					<div class="sm_personal">
 						<form action="">
-							<input type="text" id="sm_personal_name" name="sm_personal_name" value="" disabled="disabled">
-							<input type="text" id="sm_personal_email" name="sm_personal_email" value="" disabled="disabled">
-							<input type="button" id="sm_personal_button" value="edit">
-							<input type="submit" id="sm_personal_submit" value="submit">
-						</form>
+							<table class="sm_form_table_part">
+								<tbody>
+									<tr class="sm_datarow">
+											<th class="sm_table_label">
+												Name:
+											</th>
+									<td><input type="text" id="sm_personal_name" name="sm_personal_name" value="" disabled="disabled"></td>
+									</tr>
+									<tr class="sm_datarow">
+											<th class="sm_table_label">
+												College:
+											</th>
+									<td><input type="text" id="sm_personal_college" name="sm_personal_college" value="" disabled="disabled"></td>
+									</tr>
+									<tr class="sm_datarow">
+											<th class="sm_table_label">
+												contact:
+											</th>
+									<td><input type="text" id="sm_personal_contact" name="sm_personal_contact" value="" disabled="disabled"></td>
+									</tr>
+									<tr class="sm_datarow">
+											<th class="sm_table_label">
+												State:
+											</th>
+									<td><input type="text" id="sm_personal_state" name="sm_personal_state" value="" disabled="disabled"></td>
+									</tr>
+									<tr class="sm_datarow">
+											<th class="sm_table_label">
+												Roll:
+											</th>
+									<td><input type="text" id="sm_personal_roll" name="sm_personal_roll" value="" disabled="disabled"></td>
+									</tr>
+									<tr class="sm_datarow">
+									<th></th>
+									<td><input type="button" id="sm_personal_button" value="edit">
+									<input type="button" id="sm_personal_submit" value="submit"></td>
+									</tr>
+									</tbody>
+								</table>
+							</form>
 					</div>
 				</div>
 			</div>
