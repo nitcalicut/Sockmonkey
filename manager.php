@@ -16,6 +16,7 @@
 	echo $topBar;
 ?>
 
+
 <form id="searchBox" action="">
 	<input type="search" id="search" name="search"/>
 	<span id="SearchButton">Search<span>
