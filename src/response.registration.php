@@ -1,6 +1,6 @@
 <?php
 	
-	include_once 'interface.registration.php';
+	include_once 'interface.php';
 
 	if(isset($_POST['eventid'])) {
 		echo json_encode(getTeamId($_POST['eventid']));
