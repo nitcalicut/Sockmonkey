@@ -5,7 +5,7 @@
 	@author Rahul Raveendran VP  <rahul.pmna@gmail.com>
 	*/
 	
-	include "interface.event.php";
+	include "interface.php";
 
 	/*
 	* "preeventid" is passed to get all details of event.
