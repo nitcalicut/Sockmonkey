@@ -16,6 +16,7 @@
 	echo $topBar;
 ?>
 
+
 	<h1>QUICK LINKS</h1>
 	<ul style="font-size:20px;">
 		<li><a href="register.php">Register offline</a></li>
@@ -337,7 +338,7 @@
 		<option value="N">Nope ! No need.</option>
 	</select>
 </label>
-	<input type="submit" value="Sign in" name="signIn" class="g-button">
+	<input type="submit" value="Submit" name="signIn" class="g-button">
 	</form>
 </div>
 
