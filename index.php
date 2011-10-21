@@ -15,21 +15,10 @@
 <?php
 	echo $topBar;
 ?>
+
 <?php 
 	session_start();
-	if(isset($_SESSION['user'])){
-		echo 
-		"<h1>QUICK LINKS</h1>
-		<ul style='font-size:20px;'>
-			<li><a href='register.php'>Register offline</a></li>
-			<li><a href='manager.php'>Search & Managers page</a></li>
-			<li><a href='details.php'>User details page</a></li>
-			<li><a href='accommodation.php'>Accommodation</a></li>
-			<li><a href='eventregn.php'>Event regn</a></li>
-			<li><a href='logout.php'>logout</a></li>
-		</ul>";
-	}
-	else{
+	if(!isset($_SESSION['user'])){
 	echo "
 	<div class='g'>
 		<h2>Sign in <strong></strong></h2>
@@ -48,6 +37,7 @@
 	}
 ?>
 </div><!-- /container -->
+
 <?php
 	echo $bottomBar;
 	echo $scripts;
