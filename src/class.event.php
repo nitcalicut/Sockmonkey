@@ -8,7 +8,7 @@
 	include_once 'database.php';
 
 	class event {
-		private $eno,$ename,$eid,$emgr,$econtact,$emin,$emax,$efee,$eprize1,$eprize2,$eprize3,$resourcevar;
+		private $eno,$ename,$eid,$emgr,$econtact,$emin,$emax,$efee,$eprize1,$eprize2,$eprize3,$etype,$resourcevar;
 		/**/
 		public function __construct() {
 			$a = func_get_args();
@@ -18,9 +18,7 @@
 			if($i==10)
 				call_user_func_array(array($this,'createEvent'),$a);
 		}
-		public function __destruct() {
-			
-		}
+		public function __destruct() {}
 		
 		/*
 			this fuction helps you inserting a new event into database 
@@ -54,7 +52,7 @@
 		}
 
 
-		/* This fuction helps you viewing details for a particular event if the event number is given 
+		/* This function helps you viewing details for a particular event if the event number is given 
 		*
 		*/
 
@@ -75,6 +73,7 @@
 			$this->eprize1 = $rec[8];
 			$this->eprize2 = $rec[9];
 			$this->eprize3 = $rec[10];
+			$this->etype=$rec[11];
 		}
 
 		/*
@@ -82,7 +81,7 @@
 		* @return: it returns a record set which contains the result of search.
 		*/
 
-		public function searchEvent($arg) {
+		public static function searchEvent($arg) {
 			$arg='%'.$arg.'%';
 			$qry = "select * from event where 
 						(ev_name like '".$arg."') OR 
@@ -93,7 +92,7 @@
 		}
 
 		/*
-		* This is a function for uodating an event's details'
+		* This is a function for updating an event's details'
 		*/
 
 		public function updateEvent() {
@@ -169,6 +168,10 @@
 	public function getPrize3() {
 		return $this->eprize3;
 	}
+
+	public function getEventType() {
+		return $this->etype;
+	}
 	
 	public function getResourceVar() {
 		return $this->resourcevar;
@@ -221,6 +224,5 @@
 	public function setPrize3($value) {
 		$this->eprize3 = $value;
 	}
-	
 }
 ?>

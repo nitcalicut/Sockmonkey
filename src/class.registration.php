@@ -47,7 +47,6 @@ class registration
 		$this->rgConfirm5=$user['rg_cnfrm5'];
 		$this->rgPart6=$user['rg_part6'];
 		$this->rgConfirm6=$user['rg_cnfrm6'];
-		
 	}
 	
 	protected function create($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6,$rgPart7){

@@ -207,14 +207,15 @@
 			
 			if($str=="Confirm")
 			{
+				$pc1 = array($obj->getRgCaptainConfirm(), $obj->getRgConfirm1(), $obj->getRgConfirm2(), $obj->getRgConfirm3(), $obj->getRgConfirm4(), $obj->getRgConfirm5(), $obj->getRgConfirm6());
 				$pc = array($obj->getRgCaptainId(), $obj->getRgPart1(), $obj->getRgPart2(), $obj->getRgPart3(), $obj->getRgPart4(), $obj->getRgPart5(), $obj->getRgPart6());
-
+				
 				$ct=count($pc);
 				$j=0;
 				$csv="";
 				while($j<$ct)
 				{
-					if($pc[$j]!='')
+					if($pc[$j]!='' && $pc1[$j]!='N')
 						$csv.="$pc[$j],";
 					$j++;
 				}
