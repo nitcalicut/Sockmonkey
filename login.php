@@ -13,7 +13,7 @@
 		if($_POST['email']=="hospitality" && md5($_POST['password'])=="d249c17d75d8e0e94024742d69231baa"){
 			session_start();
 			$_SESSION['user']="hospitality";
-			header('Location: hospitality.php');
+			header('Location: accommodation.php');
 		}
 			
 	}

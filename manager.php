@@ -6,7 +6,11 @@
 <?php
 	include 'source.php';
 	echo $header;
+	session_start();
+	if($_SESSION['user']!="manager")
+		header("Location: index.php");
 ?>
+
 
 </head>
 <body>
