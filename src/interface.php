@@ -186,7 +186,10 @@
 	}
 	
 	function createTeam($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6){
+		$rgTeamId=genTeamId($rgEventId);
 		$obj=new registration($rgEventId,$rgTeamId,$rgCaptainId,$rgPart1,$rgPart2,$rgPart3,$rgPart4,$rgPart5,$rgPart6);
+			
+		return $rgTeamId;
 	}
 
 	function listEventTeams($eventid){
