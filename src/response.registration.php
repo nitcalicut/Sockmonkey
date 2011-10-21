@@ -35,7 +35,6 @@
 	}
 
 	if(isset($_POST['rgeventid']) &&
-						isset($_POST['rgteamid']) &&
 						isset($_POST['rgcaptainid']) &&
 						isset($_POST['rgpart1']) &&
 						isset($_POST['rgpart2']) &&
