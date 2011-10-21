@@ -6,6 +6,7 @@
 <?php
 	include 'source.php';
 	echo $header;
+	session_start();
 	if($_SESSION['user']!="hospitality")
 		header("Location: index.php");
 ?>
