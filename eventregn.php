@@ -28,11 +28,7 @@
 
 <div class="g">
 	<h2>Register for event <strong></strong></h2>
-	<form method="post" action="src/response.register.php">
-<label>
-	<strong>Team ID </strong>
-	<input type="text" placeholder="What wont spam you !" name="rgteamid">
-</label>
+	<form method="post" action="src/response.registration.php">
 <label>
 	<strong>Captain ID</strong>
 	<input type="text" placeholder="Who leads you" name="rgcaptainid">
