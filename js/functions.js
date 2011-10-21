@@ -31,7 +31,7 @@ if(typeof String.prototype.supplant !== 'function') {
 
 var sockmonkey = {
 	grayOut : function() {
-		function grayOut(vis,options){var options=options||{},zindex=options.zindex||99,opacity=options.opacity||50,opaque=(opacity/70),bgcolor=options.bgcolor||'#030303',dark=document.getElementById('darkenScreenObject');if(!dark){var tbody=document.getElementsByTagName("body")[0],tnode=document.createElement('div');tnode.style.position='fixed';tnode.style.top='0px';tnode.style.left='0px';tnode.style.overflow='hidden';tnode.style.display='none';tnode.id='darkenScreenObject';tbody.appendChild(tnode);dark=document.getElementById('darkenScreenObject');}if(vis){if(document.body&&(document.body.scrollWidth||document.body.scrollHeight)){var pageWidth='100%';var pageHeight='2000px';}dark.style.opacity=opaque;dark.style.MozOpacity=opaque;dark.style.filter='alpha(opacity='+opacity+')';dark.style.zIndex=zindex;dark.style.backgroundColor=bgcolor;dark.style.width=pageWidth;dark.style.height=pageHeight;dark.style.display='block';}else{dark.style.display='none';}}
+		return function grayOut(vis,options){var options=options||{},zindex=options.zindex||99,opacity=options.opacity||50,opaque=(opacity/70),bgcolor=options.bgcolor||'#030303',dark=document.getElementById('darkenScreenObject');if(!dark){var tbody=document.getElementsByTagName("body")[0],tnode=document.createElement('div');tnode.style.position='fixed';tnode.style.top='0px';tnode.style.left='0px';tnode.style.overflow='hidden';tnode.style.display='none';tnode.id='darkenScreenObject';tbody.appendChild(tnode);dark=document.getElementById('darkenScreenObject');}if(vis){if(document.body&&(document.body.scrollWidth||document.body.scrollHeight)){var pageWidth='100%';var pageHeight='2000px';}dark.style.opacity=opaque;dark.style.MozOpacity=opaque;dark.style.filter='alpha(opacity='+opacity+')';dark.style.zIndex=zindex;dark.style.backgroundColor=bgcolor;dark.style.width=pageWidth;dark.style.height=pageHeight;dark.style.display='block';}else{dark.style.display='none';}}
 	},
 	getUsers : function(Name) {
 			$.getJSON( 'src/response.participant.php?search='+Name , function(json) {
@@ -54,20 +54,81 @@ var sockmonkey = {
 			}
 		},
 	Pop : function(json) {
-		grayOut('true');
-		$('div#pop').show()
-		$('div#pop').html(sockmonkey.templates.Search.supplant(json));
+		$('div#searchResults span.name').click(function(){
+			sockmonkey.grayOut()('true');
+			$('div#pop').show()
+			$('div#pop').html(sockmonkey.templates.Search.supplant(json));
+			n  = this.parent().children('span.tid').text();
+			console.log(n);
+		});
+	},
+	participantinfo : function(tid) {
+		$.getJSON( 'src/response.participant.php?participantinfo='+tid , function(json) {
+			$('div#searchResults').html('');
+			var box, i;
+			for(i = 0; i < json.length; i++) {
+				box = sockmonkey.templates.Search.supplant(json[i]);
+				$('div#searchResults').append(box);
+			}
+		});
+	},
+	details : function(Name) {
+
+		$.getJSON( 'src/response.participant.php?participantevent=' + Name , function(json) {
+			$('div#searchResults').html('');
+			var box, i;
+			for(i = 0; i < json.length; i++) {
+				box = sockmonkey.templates.event.supplant(json[i]);
+				$('div#details2').append(box);
+			}
+		});
+		
+		$.getJSON( 'src/response.participant.php?search='+Name , function(json) {
+			$('div#searchResults').html('');
+			var box, i;
+			for(i = 0; i < json.length; i++) {
+				if(json[i]['pc_confirm'] == "Y") {
+					console.log("true")
+					$('button#change').remove();
+				}
+				box = sockmonkey.templates.details.supplant(json[i]);
+				$('div#details').append(box);
+			}
+		});
 	}
 };
 
 sockmonkey.templates = { 
-	Search : "<span class='name'>{pc_name}</span><br /><span class='tid'>{pc_tatid}</span><br/><span class='tid'>Status : </span><span class='tid'>{pc_confirm}</span><br /><span class='contact'>email : {pc_email} </span><br /><span class='contact'>College :</span><span class='contact'>{pc_college}</span><br /><br />"
+	Search : "<a href='details.php?tid={pc_tatid}'><span class='name'>{pc_name}</span><br /><span class='tid'>{pc_tatid}</span><br/><span class='contact'>Status : </span><span class='contact'>{pc_confirm}</span><br /><span class='contact'>email : {pc_email} </span><br /><span class='contact'>College :</span><span class='contact'>{pc_college}</span><br /><br /></a>",
+	details : 	"<span class='name'>{pc_name}</span><br />\
+	<span class='tid'>{pc_tatid}</span><br/><span class='contact'>Status : </span>\
+	<span class='contact'>{pc_confirm}</span><br />\
+	<span class='contact'>email : {pc_email} </span><br />\
+	<span class='contact'>College :</span><span class='contact'>{pc_college}</span><br />\
+	<span class='contact'>{pc_contact}</span><br />\
+	<span class='contact'>{pc_state}</span><br /><span class='contact'>{pc_gender}</span><br />\
+	<span class='contact'>Accommodation request : </span><span class='contact'>{pc_accomreqst}</span><br />\
+	<span class='contact'>Accommodation captain id : </span><span class='contact'>{pc_accomcaptainid}</span><br />\
+	<span class='contact'>NITC Roll number : </span><span class='contact'>{pc_nitcrollno}</span><br /><br />\
+	<span> Tathva ID status : {pc_confirm}</span><br /><br />\
+	<button id='change' type='button' name='name' value='confirm' onclick=\"$.post('src/response.participant.php?confirm={pc_tatid}')\">Confirm the user</button>",
+
+	event : "<span class='contact'>Team ID : </span><span class='contact'>{rg_teamid}</span><br />\
+<span class='contact'>Event ID : </span><span class='contact'>{rg_eventid}</span><br />\
+<span class='contact'>Event name : </span><span class='contact'>{ev_name}</span><br />"
+	
 };
 
 
 $(document).ready(function(){
 	sockmonkey.Search();
-	sockmonkey.grayOut()
+	sockmonkey.grayOut();
+	sockmonkey.Pop();
+	if(getUrlVars()['tid']) {
+		$('input#search').attr('value', getUrlVars()['tid']);
+		sockmonkey.details(getUrlVars()['tid']);
+	}
+
 });
 
 
