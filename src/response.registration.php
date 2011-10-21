@@ -43,7 +43,7 @@
 						isset($_POST['rgpart4']) &&
 						isset($_POST['rgpart5']) &&
 						isset($_POST['rgpart6'])){
-		createTeam($_POST['rgeventid'],
+		echo createTeam($_POST['rgeventid'],
 					$_POST['rgteamid'],
 					$_POST['rgcaptainid'],
 					$_POST['rgpart1'],
