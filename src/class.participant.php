@@ -78,7 +78,7 @@ class participant
 		
 		$sql="INSERT INTO participant (pc_tatid, pc_name, pc_email, pc_college, pc_contact, pc_state, pc_gender, pc_accomreqst, pc_nitcrollno) VALUES ('" . $this->pid . "','" . $this->pname . "','".$this->pemail . "','" . $this->pcoll . "','" . $this->pcntct . "','" . $this->pstate . "','" . $this->pgen . "','" . $this->preq . "','" . $this->pnitc . "')";
 		
-		dbquery($sql);
+		$r=dbquery($sql);
 	}
 
 	public function getTatId(){
