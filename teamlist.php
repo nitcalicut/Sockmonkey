@@ -1,39 +1,12 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Sockmonkey</title>
-
 <?php
-	include 'source.php';
-	echo $header;
+	include 'src/interface.php';
+	$arr=listEventTeams($_GET['eid']);
+	$i=1;
+	echo "<table border=\"1\">";
+	echo "<tr><td></td><td>Event</td><td>".$_GET['eid']."</td></tr>";
+	foreach ($arr as $key => $value) {
+		 echo "<tr><td>$i</td><td>$key</td><td>$value</td></tr>";
+		 $i++;
+	}
+	echo "</table>";
 ?>
-
-</head>
-<body>
-<a href='/Sockmonkey'><div id='topbar'></div></a>
-<div id='container'>
-<?php
-	echo $topBar;
-?>
-
-<script type="text/javascript" language="javascript" charset="utf-8">
-
-$(document).ready(function(){
-	$('div#details').load('src/response.registration.php?teamid=' + getUrlVars['teamid']);
-});
-
-</script>
-
-<div id="details">
-
-</div>
-
-
-</div><!-- /container -->
-<?php
-	echo $bottomBar;
-	echo $scripts;
-?>
-</body>
-</html>
-
