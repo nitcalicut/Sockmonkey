@@ -19,6 +19,7 @@
 	if(isset($_GET['participantinfo'])){
 		echo participantInfo($_GET['participantinfo']);
 	}
+	
 	if(isset($_POST['pname'])&&
 		isset($_POST['pemail'])&&
 		isset($_POST['pclg'])&&
@@ -28,5 +29,9 @@
 		isset($_POST['preq'])){
 		echo newUser($_POST['pname'],$_POST['pemail'],$_POST['pclg'],$_POST['pcntct'],$_POST['pstate'],$_POST['pgender'],$_POST['preq']);
 	}
+
+	if(isset($_POST['pid']) && isset($_POST['pname']) && isset($_POST['pemail']) && isset($_POST['pclg']) && isset($_POST['pcntct']) && isset($_POST['pstate']) && isset($_POST['preq']) && isset($_POST['pnitc'])){
+		echo updateParticipantInfo($_POST['pid'], $_POST['pname'],$_POST['pemail'],$_POST['pclg'],$_POST['pcntct'],$_POST['pstate'],$_POST['preq'],$_POST['pnitc']);
+		}
 	
 ?>
