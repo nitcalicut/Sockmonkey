@@ -5,11 +5,7 @@
 
 <?php
 	include 'source.php';
-	$global_db_username		=	"jaseem";
-	$global_db_password		=	'DBPa$$word';
-	$global_db_host			=	"localhost";
-	$global_db_name			=	"sockmonkey";
-	$global_db_port			=	"5432";
+	include 'src/settings.php';
 	echo $header;
 ?>
 
