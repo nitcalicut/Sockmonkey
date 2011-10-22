@@ -156,10 +156,6 @@ class participant
 		$sql="UPDATE participant SET pc_name='".$pname."', pc_email='".$pemail."', pc_college='".$pcoll."', pc_contact='".$pcntct."', pc_state='".$pstate."', pc_accomreqst='".$preq."', pc_nitcrollno='".$pnitc."' WHERE pc_tatid = '".$this->pid."'";
 		
 		$r=dbquery($sql);
-		if($r)
-			return 1;
-		else
-			return 0;
 	}
 	
 	/**
@@ -173,10 +169,6 @@ class participant
 		$sql="UPDATE participant SET pc_confirm='".$st."' WHERE pc_tatid = '".$this->pid."'";
 		
 		$r=dbquery($sql);
-		if($r)
-			return 1;
-		else
-			return 0;
 	}
 
 	/**

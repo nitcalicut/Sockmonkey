@@ -32,6 +32,13 @@
 		return json_encode($arr);
 	}
 	
+	/** Updates a Participant's personal details
+	*/
+	function updateParticipantInfo($tid, $pname, $pemail, $pcoll, $pcntct, $pstate, $preq, $pnitc){
+		 $part=new participant($tid);
+		 $part->updateInfo($pname, $pemail, $pcoll, $pcntct, $pstate, $preq, $pnitc);
+	}
+	
 	/**
 	* Returns the status of a Tathva ID
 	* Tested.
