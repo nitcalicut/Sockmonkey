@@ -47,6 +47,7 @@
 	<strong>College</strong>
 	<select name="pclg">
 <option value="Other">Other</option>
+<option value="College of Engineering, Trivandrum">College of Engineering, Trivandrum</option>
 <option value="A.D.Patel Institute of Technology">A.D.Patel Institute of Technology</option>
 <option value="A.M.S College of Engineering">A.M.S College of Engineering</option>
 <option value="ABV-IIITM, Gwalior">ABV-IIITM, Gwalior</option>
