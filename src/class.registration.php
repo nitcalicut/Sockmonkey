@@ -171,13 +171,13 @@ class registration
 	}
 	
 	public static function confirmEventParticipation($tid){
-		$sql="update registration set rg_cnfrm1 = CASE WHEN rg_part1 = '$tid' then 'Y' ELSE 'N' END,
-								rg_cnfrm2 = CASE WHEN rg_part2 = '$tid' then 'Y' ELSE 'N' END,
-								rg_cnfrm3 = CASE WHEN rg_part3 = '$tid' then 'Y' ELSE 'N' END,
-								rg_cnfrm4 = CASE WHEN rg_part4 = '$tid' then 'Y' ELSE 'N' END,
-								rg_cnfrm5 = CASE WHEN rg_part5 = '$tid' then 'Y' ELSE 'N' END,
-								rg_cnfrm6 = CASE WHEN rg_part6 = '$tid' then 'Y' ELSE 'N' END,
-								rg_captaincnfrm = CASE WHEN rg_captainid = '$tid' then 'Y' ELSE 'N' END";
+		$sql="update registration set rg_cnfrm1 = CASE WHEN rg_part1 = '$tid' then 'Y' else rg_cnfrm1 END,
+								rg_cnfrm2 = CASE WHEN rg_part2 = '$tid' then 'Y' else rg_cnfrm2 END,
+								rg_cnfrm3 = CASE WHEN rg_part3 = '$tid' then 'Y' else rg_cnfrm3 END,
+								rg_cnfrm4 = CASE WHEN rg_part4 = '$tid' then 'Y' else rg_cnfrm4 END,
+								rg_cnfrm5 = CASE WHEN rg_part5 = '$tid' then 'Y' else rg_cnfrm5 END,
+								rg_cnfrm6 = CASE WHEN rg_part6 = '$tid' then 'Y' else rg_cnfrm6 END,
+								rg_captaincnfrm = CASE WHEN rg_captainid = '$tid' then 'Y' else rg_captaincnfrm END";
 		dbquery($sql);
 	}
 	
