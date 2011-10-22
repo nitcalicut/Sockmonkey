@@ -30,7 +30,11 @@ if(typeof String.prototype.supplant !== 'function') {
 }
 
 var sockmonkey = {
-	getUsers : function(Name) {
+	Search : function(Name) {
+			$('span#SearchButton').click(function(){
+				n = $('input#search').attr('value');
+				sockmonkey.Search(n);
+			});
 			$.getJSON( 'src/response.participant.php?search='+Name , function(json) {
 				$('div#searchResults').html('');
 				var box, i;
@@ -39,16 +43,6 @@ var sockmonkey = {
 					$('div#searchResults').append(box);
 				}
 			});
-		},
-	Search : function() {
-			$('span#SearchButton').click(function(){
-			n = $('input#search').attr('value');
-				sockmonkey.getUsers(n);
-			});
-			if(getUrlVars()['search']) {
-				$('input#search').attr('value', getUrlVars()['search']);
-				sockmonkey.getUsers(getUrlVars()['search']);
-			}
 		},
 	participantinfo : function(tid) {
 		$.getJSON( 'src/response.participant.php?participantinfo='+tid , function(json) {
@@ -109,10 +103,11 @@ sockmonkey.templates = {
 
 
 $(document).ready(function(){
-	sockmonkey.Search();
-	if(getUrlVars()['tid']) {
-		$('input#search').attr('value', getUrlVars()['tid']);
-		sockmonkey.details(getUrlVars()['tid']);
+
+	if(getUrlVars()['search']) {
+		$('input#search').attr('value', getUrlVars()['search']);
+		$('input#search').attr('value', getUrlVars()['search']);
+		sockmonkey.Search(getUrlVars()['search']);
 	}
 
 });
