@@ -12,9 +12,9 @@ if(isset($_SESSION['user'])){
 	$menubar = "
 	<div id='menubar'>
 			<a href='manager.php'>Search and Confirm</a> | 
+			<a href='eventregn.php'>Event Registration</a> |
+			<a href='register.php'>Onspot Participant Registration</a> | 
 			<a href='accommodation.php'>Accommodation</a> |
-			<a href='register.php'>Offline Participant Registration</a> | 
-			<a href='eventregn.php'>Offline Event Registration</a> |
 			<a href='logout.php'>logout</a> 
 	</div>";
 }
