@@ -54,7 +54,7 @@ var sockmonkey = {
 			}
 		});
 	},
-	details : function(Name) {
+	userDetails : function(Name) {
 
 		$.getJSON( 'src/response.participant.php?participantevent=' + Name , function(json) {
 			$('div#searchResults').html('');
@@ -106,10 +106,13 @@ $(document).ready(function(){
 
 	if(getUrlVars()['search']) {
 		$('input#search').attr('value', getUrlVars()['search']);
-		$('input#search').attr('value', getUrlVars()['search']);
 		sockmonkey.Search(getUrlVars()['search']);
 	}
 
+	if(getUrlVars()['tid']) {
+		$('input#search').attr('value', getUrlVars()['tid']);
+		sockmonkey.userDetails(getUrlVars()['tid']);
+	}
 });
 
 
