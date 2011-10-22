@@ -5,7 +5,7 @@
 
 <?php
 	include 'source.php';
-	include 'src/settings.php';
+	include 'src/database.php';
 	echo $header;
 ?>
 
@@ -19,17 +19,10 @@
 
 <?php 
 	session_start();
-	global $global_db_username;
-			global $global_db_password;
-			global $global_db_host;
-			global $global_db_port;
-			global $global_db_name;
-			$dbconn = pg_pconnect("host=$global_db_host port=$global_db_port dbname=$global_db_name user=$global_db_username password=$global_db_password");
-		
-		
+	
 	$sql="SELECT count(*) from participant where pc_college NOT like 'NIT Calicut' AND pc_confirm='Y'";
 
-	$arr=pg_query($sql);
+	$arr=dbquery($sql);
 
 	$row=pg_fetch_row($arr);
 	echo "<span style='font-size:40px'>Confirmed Non NITC :   ".$row[0]."</span>";
