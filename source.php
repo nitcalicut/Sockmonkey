@@ -15,6 +15,7 @@ if(isset($_SESSION['user'])){
 			<a href='eventregn.php'>Event Registration</a> |
 			<a href='register.php'>Onspot Participant Registration</a> | 
 			<a href='accommodation.php'>Accommodation</a> |
+			<a href='teamlist.php'>Team list</a> |
 			<a href='logout.php'>logout</a> 
 	</div>";
 }
