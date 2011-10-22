@@ -30,6 +30,7 @@
 	* @return result_resource Result resource.
 	*/
 	function dbquery($sql){
+	echo "access granted";
 		dbconnect();
 		return pg_query($sql);
 	}
