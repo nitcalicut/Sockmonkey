@@ -102,7 +102,7 @@
 	function newUser($pname, $pemail, $pcoll, $pcntct, $pstate, $pgen, $preq) {
 		$pid = genTathvaId();
 		$obj = new participant($pid, $pname, $pemail, $pcoll, $pcntct, $pstate, $pgen, $preq,"");
-		return json_encode(array("tathvaid"=>$pid));
+		return $pid;
 	}
 	
 	/*
