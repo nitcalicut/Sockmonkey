@@ -57,6 +57,7 @@
 		*/
 
 		protected function viewEvent ($evid) {
+			/* Bad practice. A change in DB design will screw up if we use * instead of specific col names */
 			$qry = "select * from event where ev_id='".$evid."'";
 			$res = dbquery($qry);
 			$this->resourcevar = (resource2array($res));
